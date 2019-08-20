@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content" android:paddingStart="16dp" android:paddingEnd="16dp">
+    <TextView
+            android:text="Reward includes:"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/textView2" android:textSize="18sp"
+            android:textStyle="bold"/>
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" app:srcCompat="@drawable/ascendant_icon"
+                android:id="@+id/imageView" android:layout_weight="0"/>
+        <CheckBox
+                android:text="Ascendant"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/cb_ascendant"/>
+    </LinearLayout>
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" app:srcCompat="@drawable/chaos_icon" android:id="@+id/imageView2"
+                android:layout_weight="0"/>
+        <CheckBox
+                android:text="Chaos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/cb_chaos"/>
+    </LinearLayout>
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" app:srcCompat="@drawable/eldritch_icon"
+                android:id="@+id/imageView3" android:layout_weight="0"/>
+        <CheckBox
+                android:text="Eldritch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/cb_eldritch"/>
+    </LinearLayout>
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" app:srcCompat="@drawable/order_icon" android:id="@+id/imageView4"
+                android:layout_weight="0"/>
+        <CheckBox
+                android:text="Order"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/cb_order"/>
+    </LinearLayout>
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" app:srcCompat="@drawable/primordial_icon"
+                android:id="@+id/imageView5" android:layout_weight="0"/>
+        <CheckBox
+                android:text="Primordial"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/cb_primordial"/>
+    </LinearLayout>
+</LinearLayout>

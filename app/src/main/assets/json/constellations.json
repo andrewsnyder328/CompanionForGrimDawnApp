@@ -1,0 +1,1375 @@
+[
+  {
+    "name": "Crossroads Primordial",
+    "points": 1,
+    "requirements": {},
+    "rewards": {
+      "primordial": 1
+    },
+    "imageSrc": "crossroads",
+    "description": "+18 Defensive Ability"
+  },
+  {
+    "name": "Crossroads Chaos",
+    "points": 1,
+    "requirements": {},
+    "rewards": {
+      "chaos": 1
+    },
+    "imageSrc": "crossroads",
+    "description": "+5% Health"
+  },
+  {
+    "name": "Crossroads Eldritch",
+    "points": 1,
+    "requirements": {},
+    "rewards": {
+      "eldritch": 1
+    },
+    "imageSrc": "crossroads",
+    "description": "+18 Offensive Ability"
+  },
+  {
+    "name": "Crossroads Order",
+    "points": 1,
+    "requirements": {},
+    "rewards": {
+      "order": 1
+    },
+    "imageSrc": "crossroads",
+    "description": "+5% Health"
+  },
+  {
+    "name": "Crossroads Ascendant",
+    "points": 1,
+    "requirements": {},
+    "rewards": {
+      "ascendant": 1
+    },
+    "imageSrc": "crossroads",
+    "description": "+18 Offensive Ability"
+  },
+  {
+    "name": "Anvil",
+    "points": 5,
+    "requirements": {
+      "ascendant": 1
+    },
+    "rewards": {
+      "ascendant": 5
+    },
+    "imageSrc": "anvil",
+    "description": "15 Defensive Ability\n\n+20 Physique\n\nIncreases Armor Absorption by 3%\n\n+15 Defensive Ability\n+20% Constitution\n\nTargo's Hammer (25% Chance on Block)\n\n0.1 Second Skill Rechargex% Weapon Damagex Physical Damage+x% Internal Trauma Damagex% Chance to Stun"
+  },
+  {
+    "name": "Empty Throne",
+    "points": 4,
+    "requirements": {
+      "ascendant": 1
+    },
+    "rewards": {
+      "ascendant": 5
+    },
+    "imageSrc": "empty_throne",
+    "description": "15% reduced Stun Duration\n\n8% Pierce Resistance\nBonus to All Pets: 8% Pierce Resistance\n\n8% Chaos Resistance\nBonus to All Pets: 8% Chaos Resistance\n\n8% Aether Resistance\nBonus to All Pets: 8% Aether Resistance"
+  },
+  {
+    "name": "Falcon",
+    "points": 5,
+    "requirements": {
+      "ascendant": 1
+    },
+    "rewards": {
+      "ascendant": 3,
+      "eldritch": 3
+    },
+    "imageSrc": "falcon",
+    "description": "+15% Physical Damage\n\n+24% Bleeding Damage\n\n+15 Cunning\n\n+24% Physical Damage\n\nFalcon Swoop (15% Chance on Attack)\n\nx Projectilesx% Weapon Damagex Physical Damagex Bleeding Damage over 3 seconds"
+  },
+  {
+    "name": "Hammer",
+    "points": 3,
+    "requirements": {
+      "ascendant": 1
+    },
+    "rewards": {
+      "ascendant": 4
+    },
+    "imageSrc": "hammer",
+    "description": "+15% Physical Damage\n\n+30% Internal Trauma Damage\n+8 Defensive Ability\n\n+15% Physical Damage\n+30% Internal Trauma Damage"
+  },
+  {
+    "name": "Harpy",
+    "points": 4,
+    "requirements": {
+      "ascendant": 1
+    },
+    "rewards": {
+      "ascendant": 5
+    },
+    "imageSrc": "harpy",
+    "description": "+15% Pierce Damage\n+15% Cold Damage\n\n+10 Cunning\n+1.5 Energy regenerated per Second\n\n5-10 Piercing Damage\n+24% Pierce Damage\n+24% Cold Damage\n\n+15 Offensive Ability\n10% Bleeding Resistance"
+  },
+  {
+    "name": "Nighttalon",
+    "points": 4,
+    "requirements": {
+      "ascendant": 1
+    },
+    "rewards": {
+      "ascendant": 3,
+      "chaos": 2
+    },
+    "imageSrc": "nighttalon",
+    "description": "+8 Cunning\n\nBonus to All Pets : +15% to All Damage\n\n10% Elemental Resistance\n\nBonus to All Pets: 10% Elemental Resistance\n\n33 Bleeding Damage over 3 seconds\n\nBonus to All Pets: 12 Bleeding Damage over 3 seconds, +25% to All Damage\n\n+35% Bleeding Damage\n\nBonus to All Pets: 24 Bleeding Damage over 3 seconds, +60% Bleeding Damage, +5% Attack Speed"
+  },
+  {
+    "name": "Owl",
+    "points": 4,
+    "requirements": {
+      "ascendant": 1
+    },
+    "rewards": {
+      "ascendant": 5
+    },
+    "imageSrc": "owl",
+    "description": "+10 Spirit\n\n8% Elemental Resistance\n-5% Skill Energy Cost\n\n+24% Elemental Damage\n+15 defensive Ability\n+15% Reflected Damage Reduction\n\n+50% Burn Damage\n+50% Frostburn Damage\n+50% Electrocute Damage\n"
+  },
+  {
+    "name": "Shepherd's Crook",
+    "points": 5,
+    "requirements": {
+      "ascendant": 1
+    },
+    "rewards": {
+      "ascendant": 5
+    },
+    "imageSrc": "shepherds_crook",
+    "description": "+40 Health\nBonus to All Pets: +8% Health\n\n+10 Cunning\n+40 Health\n\n10% Elemental Resistance\nBonus to All Pets: 15% Elemental Resistance\n\n+3% Health\nBonus to All Pets: +5% Health, +5% Defensive Ability\n\nShepherd's Call (25% Chance on Attack)\n\n+x Offensive AbilityBonus to All Pets:+x% to All Damagex% Crit Damage+x% to All Retaliation Damage"
+  },
+  {
+    "name": "Toad",
+    "points": 4,
+    "requirements": {
+      "ascendant": 1
+    },
+    "rewards": {
+      "ascendant": 3,
+      "eldritch": 3
+    },
+    "imageSrc": "toad",
+    "description": "8% Vitality Resistance\n\n+10 Spirit\n+10 Offensive Ability\n\n3% of Attack Damage Converted to Health\n+60 Health\n\n4 Vitality Damage\n4 Aether Damage\n+24% Vitality Damage\n+24% Aether Damage"
+  },
+  {
+    "name": "Wolverine",
+    "points": 5,
+    "requirements": {
+      "ascendant": 1
+    },
+    "rewards": {
+      "ascendant": 6
+    },
+    "imageSrc": "wolverine",
+    "description": "+15 Defensive Ability\nBonus to All Pets: 10% Pierce Resistance\n\n30 Piercing Retaliation\n+20% to All Retaliation Damage\nBonus to All Pets: 50 Piercing Retaliation\n\n+25 Defensive Ability\nBonus to All Pets: 25% Bleeding Resistance\n\n+35% to All Retaliation Damage\nBonus to All Pets: +50% to All Retaliation Damage\n\n+4% Defensive Ability\n-10% Physique Requirement for Melee Weapons\n-10% Cunning Requirement for Melee Weapons\nBonus to All Pets: +5% Defensive Ability"
+  },
+  {
+    "name": "Fiend",
+    "points": 5,
+    "requirements": {
+      "chaos": 1
+    },
+    "rewards": {
+      "chaos": 2,
+      "eldritch": 3
+    },
+    "imageSrc": "fiend",
+    "description": "+15% Fire Damage\n+15% Chaos Damage\n\n+10 Spirit\nBonus to All Pets: +15% Fire Damage\n\n8% Chaos Resistance\n\n+24% Fire Damage\n+24% Chaos Damage\nBonus to All Pets: +40% Fire Damage\n\nFlame Torrent (25% Chance on Attack)\n\nAoEx% Weapon Damagex Fire Damagex Chaos Damagex Burn Damage over 3 seconds\n"
+  },
+  {
+    "name": "Ghoul",
+    "points": 5,
+    "requirements": {
+      "chaos": 1
+    },
+    "rewards": {
+      "chaos": 3
+    },
+    "imageSrc": "ghoul",
+    "description": "+10 Physique\n+8 Defensive Ability\n\n30 Life Leech over 2 Seconds\n+6 Health Regenerated per second\n\n+10 Physique\n+10 Spirit\n+15 Defensive Ability\n\n4% of Attack Damage converted to Health\nIncreases Health Regeneration by 15%\n\nGhoulish Hunger (100% Chance at 45% Health)\n\nx Life Leech over 2 seconds+% Life Leech Damagex% Attack Damage converted to Health+% Attack Speed+% Physical Resistance"
+  },
+  {
+    "name": "Jackal",
+    "points": 3,
+    "requirements": {
+      "chaos": 1
+    },
+    "rewards": {
+      "chaos": 3
+    },
+    "imageSrc": "jackal",
+    "description": "+6% Energy\nBonus to All Pets: +3% Health\n\n+12 Offensive Ability\n+6% Attack Speed\n+6% Casting Speed\n\n+15% to All Damage\nBonus to All Pets: +5% Attack Speed\n"
+  },
+  {
+    "name": "Mantis",
+    "points": 4,
+    "requirements": {
+      "chaos": 1
+    },
+    "rewards": {
+      "ascendant": 3,
+      "chaos": 2
+    },
+    "imageSrc": "mantis",
+    "description": "+15% Pierce Damage\n+20 Armor\n\n+10 Defensive Ability\n10% Elemental Resistance\n\n+80 Health\n+1 Energy Regenerated per second\n\n10 Piercing Damage\n+24% Pierce Damage\n3% Physical Resistance"
+  },
+  {
+    "name": "Rat",
+    "points": 4,
+    "requirements": {
+      "chaos": 1
+    },
+    "rewards": {
+      "chaos": 2,
+      "eldritch": 3
+    },
+    "imageSrc": "rat",
+    "description": "+8 Cunning\n+8 Spirit\n\n60 Poison Damage over 5 seconds\n+24% Poison Damage\n\n+15 Cunning\n+15 Spirit\n10% Poison & Acid Resistance\n\n120 Poison Damage over 5 seconds\n+20% Poison Damage with +30% increased duration"
+  },
+  {
+    "name": "Viper",
+    "points": 4,
+    "requirements": {
+      "chaos": 1
+    },
+    "rewards": {
+      "chaos": 2,
+      "primordial": 3
+    },
+    "imageSrc": "viper",
+    "description": "+10 Spirit\n\n15% Chance of 36 Energy Leech over 2 Seconds\n+10% Energy absorbed from Enemy Spells\n\n10% Vitality Resistance\n\n20% Reduced target's Elemental Resistances for 3 Seconds\n+3% Offensive Ability"
+  },
+  {
+    "name": "Vulture",
+    "points": 5,
+    "requirements": {
+      "chaos": 1
+    },
+    "rewards": {
+      "chaos": 5
+    },
+    "imageSrc": "vulture",
+    "description": "+10 Cunning\n\n15% Bleeding Resistance\n\n+5% Cunning\n+10 Offensive Ability\n\n+50% Life Leech Damage\n15% Vitality Resistance\n\n30 Life Leech over 2 Seconds\n30% Life Leech Resistance"
+  },
+  {
+    "name": "Wretch",
+    "points": 4,
+    "requirements": {
+      "chaos": 1
+    },
+    "rewards": {
+      "chaos": 2,
+      "primordial": 3
+    },
+    "imageSrc": "wretch",
+    "description": "+15% Acid Damage\n+15% Chaos Damage\n\n+10 Physique\n12% Bleeding Resistance\n\n+80 Health\n+15 Defensive Ability\n24 Chaos Retaliation\n\n7 Acid Damage\n1-9 Chaos Damage\n+24% Acid Damage\n+24% Chaos Damage\n"
+  },
+  {
+    "name": "Akeron's Scorpion",
+    "points": 5,
+    "requirements": {
+      "eldritch": 1
+    },
+    "rewards": {
+      "eldritch": 5
+    },
+    "imageSrc": "akerons_scorpion",
+    "description": "+12 Offensive Ability\n\n+24% Poison Damage\n\n+18 Offensive Ability\n\n+15% Acid Damage\n+30% Poison Damage\n\nScorpion's Sting (25% on Attack)\n\n6 Projectilesx% Weapon Damagex Poison DamageReduce Target's Defensive Ability by x"
+  },
+  {
+    "name": "Bat",
+    "points": 5,
+    "requirements": {
+      "eldritch": 1
+    },
+    "rewards": {
+      "chaos": 2,
+      "eldritch": 3
+    },
+    "imageSrc": "bat",
+    "description": "+15% Vitality Damage\n+15% Bleeding Damage\n\n15% Chance of 120 Life Leech over 2 Seconds\n\n+24% Vitality Damage\n+30% Bleeding Damage\n\n+30% Life Leech Damage\n3% of Attack Damage converted to Health\n\nTwin Fangs (20% Chance on Attack)\n\n70% Chance to pass through Enemiesx% Weapon Damagex Pierce Damagex Vitality Damagex% Attack Damage converted to Health"
+  },
+  {
+    "name": "Eye of the Guardian",
+    "points": 5,
+    "requirements": {
+      "eldritch": 1
+    },
+    "rewards": {
+      "ascendant": 3,
+      "eldritch": 3
+    },
+    "imageSrc": "eye_of_the_guardian",
+    "description": "+15% Acid Damage\n+15% Poison Damage\n\n+15% Chaos Damage\n\n+15% Chaos Damage\n+15% Poison Damage\n\n+30% Poison Damage\n8% Vitality Resistance\n\nGuardian's Gaze (15% on Attack)\n\nx% Weapon Damagex Chaos Damagex Poison Damage"
+  },
+  {
+    "name": "Fox",
+    "points": 4,
+    "requirements": {
+      "eldritch": 1
+    },
+    "rewards": {
+      "eldritch": 5
+    },
+    "imageSrc": "fox",
+    "description": "+10 Cunning\n\n16 Bleeding Damage over 3 Seconds\n+24% Bleeding Damage\n\n+15 Cunning\n8% Bleeding Resistance\n\n24 Bleeding Damage over 3 Seconds\n+45% Bleeding Damage\n"
+  },
+  {
+    "name": "Hawk",
+    "points": 3,
+    "requirements": {
+      "eldritch": 1
+    },
+    "rewards": {
+      "eldritch": 3
+    },
+    "imageSrc": "hawk",
+    "description": "+15 Offensive Ability\n\n+8% Crit Damage\n\n+3% Offensive Ability\n-10% Cunning Requirement for Ranged Weapons"
+  },
+  {
+    "name": "Quill",
+    "points": 4,
+    "requirements": {
+      "eldritch": 1
+    },
+    "rewards": {
+      "ascendant": 3,
+      "eldritch": 3
+    },
+    "imageSrc": "quill",
+    "description": "+15% Elemental Damage\n\n8% Aether Resistance\n\n+60 Health\n+3% Energy\n\n6 Elemental Damage\n+24% Elemental Damage\n+2% Defensive Ability"
+  },
+  {
+    "name": "Raven",
+    "points": 4,
+    "requirements": {
+      "eldritch": 1
+    },
+    "rewards": {
+      "eldritch": 5
+    },
+    "imageSrc": "raven",
+    "description": "+8 Spirit\nPet Bonus: +15% to All Damage\n\n+10 Spirit\n+1 Energy Regenerated per Second\n\n+15 Offensive Ability\nPet Bonus: +5% Offensive Ability\n\n+10% to All Damage\nPet Bonus: +60% Lightning Damage"
+  },
+  {
+    "name": "Scholar's Light",
+    "points": 3,
+    "requirements": {
+      "eldritch": 1
+    },
+    "rewards": {
+      "eldritch": 4
+    },
+    "imageSrc": "scholars_light",
+    "description": "+15% Fire Damage\n\n+8 Defensive Ability\n+10 Physique\n8% Elemental Resistance\n\n6 Elemental Damage\n+24% Elemental Damage\n+1.5 Energy Regenerated per Second"
+  },
+  {
+    "name": "Spider",
+    "points": 5,
+    "requirements": {
+      "eldritch": 1
+    },
+    "rewards": {
+      "eldritch": 6
+    },
+    "imageSrc": "spider",
+    "description": "+10 Cunning\n+10 Spirit\n\n+10 Offensive Ability\n8% Chaos Resistance\n\n12% less Damage from Insectoids & Arachnids\n+15 Offensive Ability\n+15 Defensive Ability\n\n+3% Cunning\n+3% Spirit\n\n+5% Casting Speed\n20% reduced Attack Speed Retaliation for 3 Seconds\n20% Slowed Movement Retaliation for 3 seconds"
+  },
+  {
+    "name": "Assassin's Blade",
+    "points": 5,
+    "requirements": {
+      "order": 1
+    },
+    "rewards": {
+      "ascendant": 3,
+      "order": 2
+    },
+    "imageSrc": "assassins_blade",
+    "description": "+15% Pierce Damage\n\n+12 Offensive Ability\n+8 Defensive Ability\n\n+15% Pierce Damage\n+15% Bleeding Damage\n\n+30% Bleeding Damage\n\nAssassin's Mark (100% Chance on Critical Attack)\n\nReduce Target's Physical & Pierce Resistances by x%\n"
+  },
+  {
+    "name": "Crane",
+    "points": 5,
+    "requirements": {
+      "order": 1
+    },
+    "rewards": {
+      "order": 5
+    },
+    "imageSrc": "crane",
+    "description": "+8 Physique\n+8 Spirit\n\n12% Poison & Acid Resistance\n\n+15% to All Damage\n-10% Spirit Requirement for all Weapons\n\n8% Vitality Resistance\n\n10% Elemental Resistance"
+  },
+  {
+    "name": "Dryad",
+    "points": 5,
+    "requirements": {
+      "order": 1
+    },
+    "rewards": {
+      "order": 3
+    },
+    "imageSrc": "dryad",
+    "description": "+200 Energy\n10% Poison & Acid Resistance\n\n+80 Health\n+1 Energy Regenerated per second\n\n20% Reduction in Poison Duration\n20% Reduction in Bleeding Duration\n\n+5% Spirit\n-10% Spirit Requirement for Jewelry\n\nDryad's Blessing (33% Chance on Attack)\n\nx% + y Health restoredPoison & Bleeding Duration Reduced by x%"
+  },
+  {
+    "name": "Lion",
+    "points": 3,
+    "requirements": {
+      "order": 1
+    },
+    "rewards": {
+      "order": 3
+    },
+    "imageSrc": "lion",
+    "description": "+4% Health\n+8 Defensive Ability\nBonus to All Pets: +3% Health\n\n+15 Spirit\n+100 Health\n+3% Movement Speed\n\n+15% to All Damage\nBonus to All Pets: +12% to All Damage"
+  },
+  {
+    "name": "Lotus",
+    "points": 4,
+    "requirements": {
+      "order": 1
+    },
+    "rewards": {
+      "eldritch": 3,
+      "order": 2
+    },
+    "imageSrc": "lotus",
+    "description": "+30 Health\n\n+100 Energy\n\n+1 Energy Regenerated per second\n\nIncreases Energy Regeneration by 15%\n\n+80 Health\n\n+4% Energy\n\n8% Vitality Resistance\n\nHealing Effects Increased by 6%\n\n3% Physical Resistance"
+  },
+  {
+    "name": "Panther",
+    "points": 4,
+    "requirements": {
+      "order": 1
+    },
+    "rewards": {
+      "order": 2,
+      "primordial": 3
+    },
+    "imageSrc": "panther",
+    "description": "+12 Offensive Ability\nBonus to All Pets: +2% Offensive Ability\n\n+15 Cunning\n+15 Spirit\nBonus to All Pets: +15% to All Damage\n\n+15% to All Damage\nIncreases Energy Regeneration by 15%\nBonus to All Pets: +3% Offensive Ability\n\n+5% Crit Damage\n+20 Offensive Ability\nBonus to All Pets: +5% Crit Damage"
+  },
+  {
+    "name": "Stag",
+    "points": 4,
+    "requirements": {
+      "order": 1
+    },
+    "rewards": {
+      "order": 2,
+      "primordial": 3
+    },
+    "imageSrc": "stag",
+    "description": "+15% Physical Damage\n+15% Bleeding Damage\n\n+10 Physique\n10% Pierce Resistance\n\n+80 Health\n+15 Defensive Ability\n+25% to All Retaliation Damage\n\n5 Physical Damage\n15 Bleeding Damage over 3 Seconds\n+24% Physical Damage\n+24% Bleeding Damage"
+  },
+  {
+    "name": "Tortoise",
+    "points": 5,
+    "requirements": {
+      "order": 1
+    },
+    "rewards": {
+      "order": 2,
+      "primordial": 3
+    },
+    "imageSrc": "tortoise",
+    "description": "+25 Health\n+10 Defensive Ability\n\n+12 Defensive Ability\n-10% Physique Requirement for Shields\n\n+100 Health\n+15 Defensive Ability\n\n+4% Health\n+15 Defensive Ability\nIncreases Armor by 4%\n\nTurtle Shell (100% Chance at 40% health)\n\nx Second Skill Rechargex Damage Absorption"
+  },
+  {
+    "name": "Bull",
+    "points": 5,
+    "requirements": {
+      "primordial": 1
+    },
+    "rewards": {
+      "order": 2,
+      "primordial": 3
+    },
+    "imageSrc": "bull",
+    "description": "+10 Physique\n\n+24% Internal Trauma Damage with +20% Increased Duration\n\n8% Chance of Stun target for 0.7 Seconds\n+10% Stun Duration\n+10 Physique\n\n60 Internal Trauma over 5 Seconds\n-10% Physique Requirement for Armor\n\nBull Rush (25% Chance on Attack)\n\n(requires Melee Weapon)x% Weapon Damagex-y Physical Damagex Internal Trauma Damage over 2 seconds"
+  },
+  {
+    "name": "Eel",
+    "points": 3,
+    "requirements": {
+      "primordial": 1
+    },
+    "rewards": {
+      "primordial": 5
+    },
+    "imageSrc": "eel",
+    "description": "+12 Defensive Ability\n+2% Chance to Avoid Melee Attacks\n\n+15 Defensive Ability\n+2% Chance to Avoid Projectiles\n\n+20 Defensive Ability\n+6% Movement Speed\n10% Pierce Resistance"
+  },
+  {
+    "name": "Gallows",
+    "points": 4,
+    "requirements": {
+      "primordial": 1
+    },
+    "rewards": {
+      "primordial": 5
+    },
+    "imageSrc": "gallows",
+    "description": "+15% Vitality Damage\n\n+50 Health\n15% Chance of 100 Life Leech Retaliation over 2 Seconds\n\n+70 Health\n10% Vitality Resistance\n\n12 Vitality Damage\n+24% Vitality Damage\n+24% Chaos Damage\n"
+  },
+  {
+    "name": "Hound",
+    "points": 3,
+    "requirements": {
+      "primordial": 1
+    },
+    "rewards": {
+      "primordial": 4
+    },
+    "imageSrc": "hound",
+    "description": "+10 Physique\nBonus to All Pets: +4% Health\n\nIncreases Armor by 2%\n36 Piercing Retaliation\n+20% to All Retaliation Damage\n\n+15 Physique\nIncreases Armor by 3%\n+30% to All Retaliation Damage\nBonus to All Pets: +30% to All Retaliation Damage"
+  },
+  {
+    "name": "Imp",
+    "points": 5,
+    "requirements": {
+      "primordial": 1
+    },
+    "rewards": {
+      "eldritch": 3,
+      "primordial": 3
+    },
+    "imageSrc": "imp",
+    "description": "+15% Fire Damage\n+15% Aether Damage\n\n+10 Spirit \n+10 Defensive Ability\n\n8% Aether Resistance\n\n+24% Fire Damage\n+24% Aether Damage\n\nAetherfire (15% Chance on Attack)\n\nAoEx Fire Damagex Aether Damagex% Chance of Confuse target for 2 Seconds"
+  },
+  {
+    "name": "Lizard",
+    "points": 3,
+    "requirements": {
+      "primordial": 1
+    },
+    "rewards": {
+      "primordial": 4
+    },
+    "imageSrc": "lizard",
+    "description": "+6 Health Regenerated per second\n+15% Constitution\n\n+40 Health\n+10 Health Regenerated per second\n\n+40 Health\nIncreases Health Regeneration by 15%\n+15% Constitution\n"
+  },
+  {
+    "name": "Sailor's Guide",
+    "points": 4,
+    "requirements": {
+      "primordial": 1
+    },
+    "rewards": {
+      "primordial": 5
+    },
+    "imageSrc": "sailors_guide",
+    "description": "+15 Physique\n+8 Defensive Ability\n\n18% Reduced Freeze Duration\n18% Slow Resistance\n\n+15 Physique\n+8% Movement Speed\n\n3% Physical Resistance\n15% Cold Resistance\n15% Lightning Resistance"
+  },
+  {
+    "name": "Scarab",
+    "points": 4,
+    "requirements": {
+      "primordial": 1
+    },
+    "rewards": {
+      "order": 2,
+      "primordial": 3
+    },
+    "imageSrc": "scarab",
+    "description": "+15 Physique\n\n+20 Armor\n\n+8% Shield Damage Blocked\n\nIncreases Armor by 4%\n\n15% Bleeding Resistance\n\n15% Reduced Stun Duration\n\n+12% Shield Damage Blocked\n\n30 Acid Retaliation"
+  },
+  {
+    "name": "Tsunami",
+    "points": 5,
+    "requirements": {
+      "primordial": 1
+    },
+    "rewards": {
+      "primordial": 5
+    },
+    "imageSrc": "tsunami",
+    "description": "+15% Cold Damage\n+15% Lightning Damage\n\n+10 Spirit\n\n+40% Frostburn Damage\n+40% Electrocute Damage\n+10 Physique\n\n+24% Cold Damage\n+24% Lightning Damage\n\nTsunami (35% Chance on Attack)\n\nx Rangex% Weapon Damagex Cold Damagex Lightning Damagex Frostburn Damage over 2 seconds"
+  },
+  {
+    "name": "Wraith",
+    "points": 4,
+    "requirements": {
+      "primordial": 1
+    },
+    "rewards": {
+      "primordial": 3,
+      "ascendant": 3
+    },
+    "imageSrc": "wraith",
+    "description": "+15% Lightning Damage\n+15% Aether Damage\n\n+18 Offensive Ability\n+15% Energy Absorbed from Enemy Spells\n\n+10 Spirit\n8% Aether Resistance\n\n1-7 Lightning Damage\n4 Aether Damage\n+24% Lightning Damage\n+24% Aether Damage"
+  },
+  {
+    "name": "Affliction",
+    "points": 7,
+    "requirements": {
+      "ascendant": 4,
+      "chaos": 3,
+      "eldritch": 4
+    },
+    "rewards": {
+      "ascendant": 1,
+      "eldritch": 1
+    },
+    "imageSrc": "affliction",
+    "description": "+40% Vitality Damage\n+40% Poison Damage\n\n18 Vitality Decay over 3 seconds\n+15 Spirit\n300 Vitality Decay Retaliation over 3 seconds\n\n+18 Offensive Ability\n+18 Defensive Ability\n\n+10% Crit Damage\n360 Vitality Decay Retaliation over 3 Seconds\n\n17-32 Vitality Damage\n10% Poison & Acid Resistance\n\n+50% Acid Damage\n+20% Vitality Damage\n+3% Offensive Ability\n\nFetid Pool (33% Chance when Hit)\n\nAoEx Vitality Damagex Poison Damagex% Slow"
+  },
+  {
+    "name": "Alladrah's Phoenix",
+    "points": 5,
+    "requirements": {
+      "eldritch": 6,
+      "order": 3,
+      "primordial": 6
+    },
+    "rewards": {
+      "ascendant": 2,
+      "eldritch": 2
+    },
+    "imageSrc": "alladrahs_phoenix",
+    "description": "+40% Aether Damage\n+40% Elemental Damage\n\n+150 Health\n12% Chaos Resistance\n100 Fire Retaliation\n\n+30% Aether Damage\n+30% Elemental Damage\nIncreases Health Regeneration by 20%\n\n+5% Crit Damage\n+50% Fire Damage\n+100% Burn Damage\n\nPhoenix Fire (100% Chance on Critical Attack)\n\nx Damage Absorptionx Fire Damagex Aether Damagex Burn Damage over 2 Seconds"
+  },
+  {
+    "name": "Amatok the Spirit of Winter",
+    "points": 7,
+    "requirements": {
+      "eldritch": 4,
+      "primordial": 6
+    },
+    "rewards": {
+      "eldritch": 1,
+      "primordial": 1
+    },
+    "imageSrc": "amatok_the_spirit_of_winter",
+    "description": "+40% Cold Damage\n\n+4% Health\n+15 Defensive Ability\n\n+30 Offensive Ability\n25% Cold Resistance\n\n+50% Cold Damage\n+50% Frostburn Damage\n+100 Health\n\n36 Frostburn Damage over 3 Seconds\n+30% Cold Damage\n+100% Frostburn Damage\n\n+50% Frostburn Damage with +30% Increased Duration\n+25 Offensive Ability\n\nBlizzard (100% Chance on Critical Attack\n\nx% Weapon Damagex Cold Damagex Frostburn Damage over 2 Secondsx% Chance to Freeze for 1 Secondsx% Slower target Movement for 3 Seconds"
+  },
+  {
+    "name": "Assassin",
+    "points": 7,
+    "requirements": {
+      "ascendant": 6,
+      "order": 4
+    },
+    "rewards": {
+      "ascendant": 1,
+      "order": 1
+    },
+    "imageSrc": "assassin",
+    "description": "+30% Pierce Damage\n\n+15 Cunning\n+60 Health\n\n+18 Offensive Ability\n+10 Defensive Ability\n\n+5% Cunning\n+10% Bleeding Resistance\n\n+15% Damage to Humans\n+25 Defensive Ability\n10% Poison & Acid Resistance\n\n8 Piercing Damage\n+40% Pierce Damage\n\nBlades of Wrath (100% Chance on Critical Attack)\n\nx Projectiles100% Chance to pass through Enemies % Weapon Damagex Piercing Damage"
+  },
+  {
+    "name": "Autumn Boar",
+    "points": 7,
+    "requirements": {
+      "ascendant": 4,
+      "order": 3,
+      "primordial": 4
+    },
+    "rewards": {
+      "ascendant": 3
+    },
+    "imageSrc": "autumn_boar",
+    "description": "+10 Physique\n10 Cunning\n\n+10 Physique\n15% Pierce Resistance\n\n+5% Physique\n\n4% Physical Resistance\n20% Fire Resistance\n\n+10% Stun Duration\n150 Physical Damage Retaliation\n\n10% Chance of 2100 Bleeding Retaliation over 3 Seconds\n\nTrample (25% Chance on Block)\n\nAoE100% Chance to pass through Enemies % Weapon Damagex Internal Trauma Damage % Chance of Knockdown target for x seconds"
+  },
+  {
+    "name": "Bard's Harp",
+    "points": 6,
+    "requirements": {
+      "ascendant": 6,
+      "order": 3,
+      "primordial": 6
+    },
+    "rewards": {
+      "order": 2,
+      "primordial": 2
+    },
+    "imageSrc": "bards_harp",
+    "description": "+200 Health\n+20% Constitution\n\n+30% Pierce Damage\n+40% Elemental Damage\nIncreases Energy Regeneration by 10%\n\n15% Pierce Resistance\n10% Bleeding Resistance\n\n+10% Energy\n+2 Energy Regenerated per Second\n\n+40% Pierce Damage\n+50% Elemental Damage\n15% Elemental Resistance\n\nInspiration (15% Chance when Hit)\n\nx% Energy Restored+x Offensive Ability+x Defensive Ability+x Energy Restored per Secondx% Reduced Entrapment Durationx% Slow Resistance"
+  },
+  {
+    "name": "Behemoth",
+    "points": 6,
+    "requirements": {
+      "chaos": 3,
+      "eldritch": 4,
+      "primordial": 4
+    },
+    "rewards": {
+      "chaos": 2,
+      "eldritch": 3
+    },
+    "imageSrc": "behemoth",
+    "description": "+10 Health Regenerated per second\n\n+300 Health\nBonus to all Pets: +5% Health\n\n+15 Health Regenerated per second\n+25% Constitution\n\n+4% Health\n\nIncreases Health Regeneration by 10%\nBonus to all Pets: Increase Health Regeneration by 20%\n\nGiant's Blood (15% Chance when Hit)\n\n % + x Health Restored+x Health Regenerated per Second"
+  },
+  {
+    "name": "Berserker",
+    "points": 6,
+    "requirements": {
+      "ascendant": 5,
+      "eldritch": 5
+    },
+    "rewards": {
+      "chaos": 2,
+      "eldritch": 3
+    },
+    "imageSrc": "berserker",
+    "description": "+80 Health\n+20 Offensive Ability\n\n+50% Physical Damage\n\n+80 Health\n+35 Offensive Ability\n\n+50% Physical Damage\n+80% Bleeding Damage\n\n45 Bleeding damage over 3 Seconds\n+5% Crit Damage\n15% Chance of +50% Bleeding Damage with +50% Increased Duration\n\n10% Pierce Resistance\n20% Reduction in Bleeding Duration"
+  },
+  {
+    "name": "Blades of Nadaan",
+    "points": 6,
+    "requirements": {
+      "ascendant": 10
+    },
+    "rewards": {
+      "ascendant": 3,
+      "order": 2
+    },
+    "imageSrc": "blades_of_nadaan",
+    "description": "(Requires a Sword)\n\n2% Chance to Avoid Melee Attacks\n2% Chance to Avoid Projectiles\n\n+40% Pierce Damage\n\n+8 Defensive Ability\n+50% Pierce Damage\n\n+8 Defensive Ability\n+4% Attack Speed\n\n+5% Attack Speed\n\nIncreases Armor Piercing by 100%"
+  },
+  {
+    "name": "Bysmiel's Bonds",
+    "points": 5,
+    "requirements": {
+      "chaos": 4,
+      "eldritch": 6
+    },
+    "rewards": {
+      "eldritch": 3
+    },
+    "imageSrc": "bysmiels_bonds",
+    "description": "+15 Offensive Ability\nBonus to All Pets: 30% to All Damage\n\n+5% Casting Speed\nBonus to All Pets: 8% Total Speed\n\n15% Vitality Resistance\nBonus to All Pets: 20% Vitality Resistance\n\n+30% to All Damage\nBonus to All Pets: +40% to All Damage, +8% Health\n\nBysmiel's Command (20% Chance on Attack)\n\nSummon Scales with Pet AttributesLives for x SecondsPhysical DamageAcid Damage"
+  },
+  {
+    "name": "Chariot of the Dead",
+    "points": 7,
+    "requirements": {
+      "ascendant": 5,
+      "eldritch": 5
+    },
+    "rewards": {
+      "chaos": 2,
+      "eldritch": 3
+    },
+    "imageSrc": "chariot_of_the_dead",
+    "description": "+15 Cunning\n\n+15 Offensive Ability\n\n16% Vitality Resistance\n\n+100 Health \n+20 Cunning\n\n+25 Offensive Ability\n\n+10 Offensive Ability\n+4% Offensive Ability\n\nWayward Soul (20% when Hit)\n\n % + x Health Restored+x Defensive Ability"
+  },
+  {
+    "name": "Crab",
+    "points": 5,
+    "requirements": {
+      "ascendant": 6,
+      "order": 4
+    },
+    "rewards": {
+      "ascendant": 3
+    },
+    "imageSrc": "crab",
+    "description": "+20 Physique\n+15% Constitution\n\n+40% Physical Damage\n+40% Elemental Damage\n+40% Internal Trauma Damage\n\n+35 Defensive Ability\n18% Pierce Resistance\n\n15 Elemental Damage\n+40% Elemental Damage\n15% Elemental Resistance\n\nArcane Barrier (15% Chance when Hit)\n\nx Elemental/Aether/Chaos Damage Absorption"
+  },
+  {
+    "name": "Dire Bear",
+    "points": 6,
+    "requirements": {
+      "ascendant": 5,
+      "primordial": 5
+    },
+    "rewards": {
+      "ascendant": 1,
+      "primordial": 1
+    },
+    "imageSrc": "dire_bear",
+    "description": "+40% Physical Damage\n\n+10 Physique\n+10 Cunning\n\n+15% Constitution\n+40 Armor\n\n+5% Health\n15% Reduced Stun Duration\n15% Reduced Freeze Duration\n\n+50% Physical Damage\n+50% Internal Trauma Damage\n\nMaul (15% Chance on Attack)\n\nRequires a Melee WeaponAoEx% Weapon Damagex Physical Damagex% Chance of Stun for 1.5 Seconds"
+  },
+  {
+    "name": "Harvestman's Scythe",
+    "points": 6,
+    "requirements": {
+      "ascendant": 3,
+      "order": 3,
+      "primordial": 5
+    },
+    "rewards": {
+      "ascendant": 3,
+      "primordial": 3
+    },
+    "imageSrc": "harvestmans_scythe",
+    "description": "+150 Energy\n+2 Energy Regenerated per Second\n\n+150 Health\n+12 Health Regenerated per Second\n\n+4% Physique\n+20% Constitution\n\n+4% Health\nIncreases Health Regeneration by 20%\n\n+4% Energy\nIncreases Energy Regeneration by 20%\n\n+4% Cunning\n+4% Spirit\n+2% Defensive Ability\n+4% Movement Speed"
+  },
+  {
+    "name": "Huntress",
+    "points": 7,
+    "requirements": {
+      "ascendant": 4,
+      "chaos": 3,
+      "eldritch": 4
+    },
+    "rewards": {
+      "ascendant": 1,
+      "eldritch": 1
+    },
+    "imageSrc": "huntress",
+    "description": "+15 Offensive Ability\n\n+35% Pierce Damage\n+10 Cunning\n\n+60% Bleeding Damage\n+15 Offensive Ability\n\n+15% Damage to Beasts\n+100 Health\n+8 Pierce Resistance\nBonus to All Pets: +8% Health\n\n+3% Offensive Ability\nBonus to All Pets: +5% Offensive Ability\n\n24 Bleeding Damage over 3 Seconds\n+50% Bleeding Damage with +20% Increased Duration\n\nRend (20% Chance on Attack)\n\nAoEx Bleeding Damage per second-x Offensive Ability-x% Bleeding Resistance"
+  },
+  {
+    "name": "Hydra",
+    "points": 6,
+    "requirements": {
+      "ascendant": 3,
+      "chaos": 3,
+      "eldritch": 5
+    },
+    "rewards": {
+      "chaos": 2,
+      "eldritch": 3
+    },
+    "imageSrc": "hydra",
+    "description": "(Requires a Ranged Weapon)\n\n+15 Offensive Ability\n\n4 Elemental Damage\n+40% to All Damage\n\n+40% Pierce Damage\n\n+30 Offensive Ability\n\n8 Pierce Damage\n+4% Offensive Ability\n20% Slow Resistance\n\n5 Elemental Damage\n+35% to All Damage"
+  },
+  {
+    "name": "Hyrian, Guardian of the Celestial Gates",
+    "points": 6,
+    "requirements": {
+      "ascendant": 6,
+      "eldritch": 8
+    },
+    "rewards": {
+      "ascendant": 2,
+      "eldritch": 2
+    },
+    "imageSrc": "hyrian_guardian_of_the_celestial_gates",
+    "description": "+40% Elemental Damage\n\n+10% Pierce Resistance\n\n+8% Shield Damage Blocked\n\n+100 Health\n\nHealing Effects Increased by 8%\n\nIncreases Armor by 4%\n\n17 Elemental Damage\n\n+20% Shield Damage Blocked\n\n+50% Elemental Damage\n\nIncreases Armor by 6%\n\n15% Elemental Reistance\n\nHyrian's Glare (30% Chance when Hit)\n\nx Second Skill Recharge\n\nx Meter Range\n\nx% Main Hand Damage\n\nx% of Retaliation Damage added to Attack\n\nx Elemental Damage\n\nx% Chance of Confuse target for x Seconds"
+  },
+  {
+    "name": "Kraken",
+    "points": 5,
+    "requirements": {
+      "eldritch": 5,
+      "primordial": 5
+    },
+    "rewards": {
+      "chaos": 2,
+      "primordial": 3
+    },
+    "imageSrc": "kraken",
+    "description": " (Requires a Two-Handed Weapon)\n\n+35% to All Damage\n\n+40% Physical Damage\n+10% Attack Speed\n\n+40% Physical Damage\n+10% Attack Speed\n\n+50% to All Damage\n+5% Movement Speed\n\n+35% to All Damage\n+15% Crit Damage"
+  },
+  {
+    "name": "Magi",
+    "points": 7,
+    "requirements": {
+      "eldritch": 10
+    },
+    "rewards": {
+      "eldritch": 3
+    },
+    "imageSrc": "magi",
+    "description": "+40% Fire Damage\n+50% Burn Damage\n\n+10 Defensive Ability\n8% Elemental Resistance\n\n+10 Defensive Ability\n25% Fire Resistance\n\n+100% Burn Damage\n+5% Casting Speed\n\n6-8 Fire Damage\n+40% Fire Damage\n\n36 Burn Damage over 3 Seconds\n+60% Burn Damage with +30% Increased Duration\n\nFissure (15% Chance on Attack)\n\nx FragmentsAoEx Fire Damagex Burn Damage over y secondsx% Chance to Stun target for y Seconds\n"
+  },
+  {
+    "name": "Manticore",
+    "points": 6,
+    "requirements": {
+      "chaos": 4,
+      "eldritch": 6
+    },
+    "rewards": {
+      "ascendant": 1,
+      "eldritch": 1
+    },
+    "imageSrc": "manticore",
+    "description": "+15 Offensive Ability\n\n+50% Poison Damage\n+50% Acid Damage\n\n+4% Health\n\n+20 Offensive Ability\n25% Poison & Acid Resistance\n\n40 Poison Damage over 5 seconds\n+40% Acid Damage\n+40% Poison Damage with +30% Increased Duration\n\nAcid Spray (15% Chance on Attack)\n\nAoEx Acid Damagex Poison Damage over 2 secondsx Reduced Target's Armor for 5 secondsx Reduced Target's Resistances for 5 seconds"
+  },
+  {
+    "name": "Messenger of War",
+    "points": 6,
+    "requirements": {
+      "ascendant": 3,
+      "primordial": 7
+    },
+    "rewards": {
+      "chaos": 2,
+      "primordial": 3
+    },
+    "imageSrc": "messenger_of_war",
+    "description": "90 Piercing Retaliation\n+30% to All Retaliation Damage\n\n+10 Physique\n+5% Movement Speed\n\n+50 Armor\n+50% to All Retaliation Damage\n\nIncreases Armor by 8%\n120 Piercing Retaliation\n\n15% Pierce Resistance\n25% Damage Reflected\n\nMessenger of War (20% Chance when Hit by Melee Attacks)\n\n+% Movement Speed % Slow Resistancex Piercing Retaliation+x% to All Retaliation Damage"
+  },
+  {
+    "name": "Murmur, Mistress of Rumors",
+    "points": 6,
+    "requirements": {
+      "chaos": 3,
+      "eldritch": 6,
+      "primordial": 6
+    },
+    "rewards": {
+      "chaos": 2,
+      "eldritch": 2
+    },
+    "imageSrc": "murmur_mistress_of_rumors",
+    "description": "+40% Cold Damage\n+40% Acid Damage\n\n3% Chance to Avoid Melee Attacks\n3% Chance to Avoid Projectiles\n\n+150 Health\n+15 Defensive Ability\n\nRumor (15% Chance on Attack)\n\nx Cold Damagex Acid Damage-x Offensive Ability-x% Cold Resistance-x% Poison & Acid Resistance\n\n+15 Defensive Ability\n10% Vitality Resistance\n\n+50% Cold Damage\n+50% Acid Damage\n+80% Frostburn Damage"
+  },
+  {
+    "name": "Oklaine's Lantern",
+    "points": 5,
+    "requirements": {
+      "eldritch": 10
+    },
+    "rewards": {
+      "eldritch": 3,
+      "order": 2
+    },
+    "imageSrc": "oklaines_lantern",
+    "description": "(Requires a caster off-hand or scepter/dagger)\n\nIncreases Energy Regeneration by 15%\n\n+25 Offensive Ability\n+20 Defensive Ability\n\n+5% Crit Damage\n+15 Offensive Ability\n\n+50% to All Damage\n25% Reduced Entrapment Duration\n\n+2 Energy Regenerated per second\n+5% Attack Speed\n+5% Casting Speed"
+  },
+  {
+    "name": "Revenant",
+    "points": 6,
+    "requirements": {
+      "chaos": 8
+    },
+    "rewards": {
+      "chaos": 1,
+      "primordial": 1
+    },
+    "imageSrc": "revenant",
+    "description": "10% Chance of 40 Energy Leech over 2 Seconds\n+15% Energy Absorbed from Enemy Spells\n\n10% Less Damage from Undead\n+3% Health\n\n24% Vitality Resistance\nBonus to All Pets: 15% Vitality Resistance\n\n6% of Attack Damage converted to Health\n+175 Health\n\n+15% Damage to Undead\n+6% Attack Speed\n+6% Casting Speed\nBonus to All Pets: 5% of Attack Damage converted to Health\n\nRaise the Dead (100% Chance on Enemy Death)\n\nSummon Scales with Pet Bonusesx Aether Damagex Vitality DamageSlower target Movement Speed"
+  },
+  {
+    "name": "Rhowan's Crown",
+    "points": 5,
+    "requirements": {
+      "ascendant": 4,
+      "eldritch": 6
+    },
+    "rewards": {
+      "ascendant": 1,
+      "eldritch": 1
+    },
+    "imageSrc": "rhowans_crown",
+    "description": "6-9 Elemental Damage\n+30% Elemental Damage\n\n+20 Spirit\nBonus to All Pets: +40% Elemental Damage\n\n18% Elemental Resistance\nBonus to All Pets: 10% Elemental Resistances\n\n+40% Elemental Damage\n+60% Burn Damage\n+60% FrostburnDamage \n+60% Electrocute Damage\n8% Chaos Resistance\n\nElemental Storm (25% on Attack)\n\nAoEx Elemental Damagex Burn/Frostburn/Electrocute Damagex Reduced target's Elemental Resistances for 2 seconds"
+  },
+  {
+    "name": "Rhowan's Scepter",
+    "points": 6,
+    "requirements": {
+      "ascendant": 6,
+      "order": 4
+    },
+    "rewards": {
+      "ascendant": 3,
+      "order": 2
+    },
+    "imageSrc": "rhowans_scepter",
+    "description": "(Requires a Mace)\n\n+20 Defensive Ability\n\n+6% Health\n\n+50% Physical Damage\n\n75 Internal Trauma over 5 Seconds\n+80% Internal Trauma Damage\n\n+30 Defensive Ability\n\n8-12 Physical Damage\n5% Chance of Stun target for 1 second\n+10% Stun Duration"
+  },
+  {
+    "name": "Scales of Ulcama",
+    "points": 6,
+    "requirements": {
+      "order": 8
+    },
+    "rewards": {
+      "order": 2
+    },
+    "imageSrc": "scales_of_ulcama",
+    "description": "+250 Health\n+300 Energy\n\n+6 Health Regenerated per Second\nIncreases Health Regeneration by 10%\n\n+6% Health\n+4% Movement Speed\n\n+2 Energy Regenerated per Second\nIncreases Energy Regeneration by 10%\n\n+30% to All Damage\n+20 Physique\n\nTip the Scales (20% Chance when Hit)\n\nVitality DamageEnergy Leech over TimeAttack Damage converted to Health"
+  },
+  {
+    "name": "Shieldmaiden",
+    "points": 6,
+    "requirements": {
+      "order": 4,
+      "primordial": 6
+    },
+    "rewards": {
+      "order": 2,
+      "primordial": 3
+    },
+    "imageSrc": "shieldmaiden",
+    "description": "(Requires a Shield)\n\n+4% Shield Block Chance\n\n+15% Shield Damage Blocked\n\n+50% Internal Trauma Damage\n+50% to All Retaliation Damage\n\n60 Internal Trauma over 5 Seconds\n200 Pierce Retaliation\n\n25% Reduced Stun Duration\n+20% Shield Damage blocked\n\n-15% Shield Recovery Time\n+10% Shield Damage Blocked"
+  },
+  {
+    "name": "Solael's Witchblade",
+    "points": 5,
+    "requirements": {
+      "chaos": 4,
+      "eldritch": 6
+    },
+    "rewards": {
+      "chaos": 1,
+      "eldritch": 1
+    },
+    "imageSrc": "solaels_witchblade",
+    "description": "+40% Chaos Damage\n\n+15 Spirit\n+10 Offensive Ability\n\n10% Energy Burn (50% of Energy Burnt Causes Damage)\n+30% Chaos Damage\n+15 Defensive Ability\n\n+55% Fire Damage\n+55% Chaos Damage\n15% Fire Resistance\n\nEldritch Fire (15% Chance on Attack)\n\nx Fire Damagex Chaos Damage-% Movement Speed-% Fire Resistance-% Chaos Resistance"
+  },
+  {
+    "name": "Solemn Watcher",
+    "points": 5,
+    "requirements": {
+      "primordial": 10
+    },
+    "rewards": {
+      "order": 2,
+      "primordial": 3
+    },
+    "imageSrc": "solemn_watcher",
+    "description": "+20 Physique\n\n25% Cold Resistance\n\n18% Pierce Resistance\n\n+3% Physique\n+30 Defensive Ability\n\n+5% Defensive Ability\n+20% Reflected Damage Reduction"
+  },
+  {
+    "name": "Staff of Rattosh",
+    "points": 6,
+    "requirements": {
+      "chaos": 3,
+      "order": 3,
+      "primordial": 6
+    },
+    "rewards": {
+      "chaos": 2,
+      "primordial": 2
+    },
+    "imageSrc": "staff_of_rattosh",
+    "description": "+20 Defensive Ability\nBonus to All Pets: +3% Defensive Ability\n\n15% Aether Resistance\nBonus to All Pets: 15% Aether Resistance\n\n+150 Health\nBonus to All Pets: +30% to All Damage\n\n+5% Health\n10% Vitality Resistance\nBonus to All Pets: 10% Vitality Resistance\n\n+50% Aether Damage\nBonus to All Pets: +50% to All Damage\n\n+3% Offensive Ability\nBonus to All Pets: +6% Crit Damage, +3% Offensive Ability"
+  },
+  {
+    "name": "Targo the Builder",
+    "points": 7,
+    "requirements": {
+      "order": 4,
+      "primordial": 6
+    },
+    "rewards": {
+      "order": 1
+    },
+    "imageSrc": "targo_the_builder",
+    "description": "+20 Defensive Ability\n\n+5% health\n\nIncreases Armor by 5%\n\n+5% Health\n\n+300 Health\n+20 Defensive Ability\n\nIncreases Armor by 5%\n+20% Shield Damage Blocked\n\nShield Wall (33% Chance on Attack)\n\nRequires a ShieldIncreases Armor by x%+x% Shield Damage Blockedx% Damage Reflected"
+  },
+  {
+    "name": "Tempest",
+    "points": 7,
+    "requirements": {
+      "ascendant": 5,
+      "primordial": 5
+    },
+    "rewards": {
+      "eldritch": 1,
+      "primordial": 1
+    },
+    "imageSrc": "tempest",
+    "description": "+40% Lightning Damage\n\n1-24 Lightning Damage\n\n+50% Lightning Damage\n+50% Electrocute Damage\n\n+20 Offensive Ability\n25% Lightning Resistance\n\n30% Chance of +100% Lightning Damage\n+3% Movement Speed\n\n+50% Electrocute Damage with +30% Increased Duration\n+20 Offensive Ability\n\nReckless Tempest (100% Chance on Critical Attack)\n\nx Target MaximumAoEx Lightning Damagex Electrocute Damagex% Chance to Stun"
+  },
+  {
+    "name": "Typhos, the Jailor of Souls",
+    "points": 6,
+    "requirements": {
+      "ascendant": 6,
+      "chaos": 3,
+      "order": 3
+    },
+    "rewards": {
+      "ascendant": 2,
+      "order": 2
+    },
+    "imageSrc": "typhos_the_jailor_of_souls",
+    "description": "Increase Armor by 5%\nBonus to All Pets: Increase Armor by 8%\n\n+40% Vitality Damage\n+40% Aether Damage\n\n15% Poison & Acid Resistance\nBonus to All Pets: 15% Poison & Acid Resistance\n\n3% Physical Resistance\nBonus to All Pets: +4% Total Speed, 8% Physical Resistance\n\n+100% Vitality Decay\n+5% Health\nBonus to All Pets: +5% Health\n\n+50% Vitality Damage\n+50% Aether Damage\nBonus to All Pets: +120% Vitality Damage"
+  },
+  {
+    "name": "Ulo the Keeper of the Waters",
+    "points": 5,
+    "requirements": {
+      "order": 4,
+      "primordial": 6
+    },
+    "rewards": {
+      "order": 2,
+      "primordial": 3
+    },
+    "imageSrc": "ulo_the_keeper_of_the_waters",
+    "description": "10% Elemental Resistance\nBonus to All Pets: 10% Elemental Resistance\n\n+100 Health\n+100 Energy\n30% Life Leech Resistance\n30% Energy Leech Resistance\n\n15% Poison & Acid Resistance\nBonus to All Pets: 15% Poison & Acid Resistance\n\n10% Chaos Resistance\nBonus to All Pets: 10% Chaos Resistance\n\nCleansing Waters (100% Chance on Attack)\n\nAoEPurge Effectx% Slow Target for 8 Seconds\n"
+  },
+  {
+    "name": "Wendigo",
+    "points": 6,
+    "requirements": {
+      "chaos": 4,
+      "primordial": 6
+    },
+    "rewards": {
+      "chaos": 2
+    },
+    "imageSrc": "wendigo",
+    "description": "+40% Vitality Damage\n+40% Vitality Decay\n\n+15 Spirit\n+100 Health\n\n+5% Casting Speed\n10% Vitality Resistance\n\n10% Less Damage from Beasts\n+5% Health\n\n24 Vitality Decay over 3 seconds \n+50% Vitality Damage\n+50% Vitality Decay\n+50% Life Leech Damage\n\nWendigo's Mark (15% Chance on Attack)\n\nx Vitality Damagex% Attack Damage Converted to Health"
+  },
+  {
+    "name": "Widow",
+    "points": 6,
+    "requirements": {
+      "eldritch": 6,
+      "primordial": 4
+    },
+    "rewards": {
+      "primordial": 3
+    },
+    "imageSrc": "widow",
+    "description": "+20% Aether Damage\n\n+5% Energy\n+18 Offensive Ability\n\n+15% Aether Damage\n+10 Spirit\n\n+10 Offensive Ability\n18% Aether Resistance\n\n+25% Lightning Damage\n+25% Aether Damage\n\nArcane Bomb (25% Chance on Attack)\n\nTakes 1 Second to armAoE, Limit: 6x Lightning Damagex Aether Damage-x Offensive Ability-x% Lightning Resistance-x% Aether Resistance"
+  },
+  {
+    "name": "Ulzaad, Herald of Korvaak",
+    "points": 6,
+    "requirements": {
+      "ascendant": 8,
+      "primordial": 6
+    },
+    "rewards": {
+      "ascendant": 2,
+      "eldritch": 2
+    },
+    "imageSrc": "ulzaad_harald_of_korvaak",
+    "description": "+40% Physical Damage\n\n+80 Health\n+10% Chaos Resistance\n\n+80 Health\n10% Aether Resistance\n\n+10 Defensive Ability\n15% Cold Resistance\n15% Poison & Acid Resistance\n\n64-85 Physical Damage\n+50% Physical Damage\n+50% Internal Trauma Damage\n\nUlzaad's Decree (20% Chance on Attack)\n\nx Second Skill Rechargex Second Durationx Physical Damage+ 40% Physical Damage+ 40% Pierce Damage+ 40% Internal Trauma Damage+ 30 Armorx Physical Damage Retaliation"
+  },
+  {
+    "name": "Abomination",
+    "points": 8,
+    "requirements": {
+      "chaos": 8,
+      "eldritch": 18
+    },
+    "rewards": {},
+    "imageSrc": "abomination",
+    "description": "+80% Chaos Damage\n+80% Poison Damage\n\n+80% Acid Damage\n+80% Vitality Damage\n\n+40 Offensive Ability\n20% Poison & Acid Resistance\n+3% Maximum Poison & Acid Resistance\n\n+80% Chaos Damage\n+150 Health\n+20 Offensive Ability\n\n+80% Poison Damage\n+150 Health\n+20 Offensive Ability\n\n12 Acid Damage\n+100% Acid Damage\n+100% Poison Damage\n\nAbominable Might (100% on Enemy Death)\n\nx Chaos Damage+x% Chaos Damagex% Physical Damage converted to Chaos Damage+x% Health\n\nTainted Eruption (15% on Attack)\n\nAoEPoison DamageConfuse Target for 1.8 Seconds"
+  },
+  {
+    "name": "Aeon's Hourglass",
+    "points": 6,
+    "requirements": {
+      "chaos": 8,
+      "primordial": 18
+    },
+    "rewards": {},
+    "imageSrc": "aeons_hourglass",
+    "description": "+30 Physique/Cunning/Spirit\n\n+25% Reduction in DoT Duration\n\n30% Reduced Entrapment Duration\n50% Slow Resistance\n+25% Reflected Damage Reduction\n\n20% Aether Resistance\n15% Vitality Resistance\n+4% Maximum Vitality Resistance\n\n+75 Defensive Ability\n6% Chance to Avoid Melee Attacks\n6% Chance to Avoid Projectiles\n\nTime Dilation (20% Chance on Attack)\n\n-6 Seconds to All Currently Active Skill Cooldownsx Second Skill Recharge"
+  },
+  {
+    "name": "Attak Seru, the Mirage",
+    "points": 6,
+    "requirements": {
+      "ascendant": 16,
+      "eldritch": 14
+    },
+    "rewards": {},
+    "imageSrc": "attak_seru_the_mirage",
+    "description": "+80% Aether Damage\n+25 Defensive Ability\n\n+80% Elemental Damage\n+25 Defensive Ability\n\n25% Pierce Resistance\n25% Bleeding Resistance\n\n+300 Health\n+3% Defensive Ability\n\n12 Elemental Damage\n+100% Aether Damage\n+100% Elemental Damage\n\nArcane Currents (15% Chance on Attack)\n\nScales with Player Bonusesx Aether Damagex Elemental Damage"
+  },
+  {
+    "name": "Blind Sage",
+    "points": 7,
+    "requirements": {
+      "ascendant": 10,
+      "eldritch": 18
+    },
+    "rewards": {},
+    "imageSrc": "blind_sage",
+    "description": "+25 Spirit\n+15 Offensive Ability\n\n+80% Elemental Damage\n+40 Offensive Ability\n\n+10% Crit Damage\n+30% Skill Disruption Protection\n\n+100% Cold Damage\n+200% Frostburn Damage\n20% Cold Resistance\n\n+100% Fire Damage\n+200% Burn Damage\n20% Fire Resistance\n\n+100% Lightning Damage\n+200% Electrocute Damage\n20% Lightning Resistance\n\nElemental Seeker (100% Chance on Attack)\n\nSummon Scales with Player BonusesAoEx Elemental DamageEnergy BurnStun"
+  },
+  {
+    "name": "Dying God",
+    "points": 7,
+    "requirements": {
+      "chaos": 8,
+      "primordial": 15
+    },
+    "rewards": {},
+    "imageSrc": "dying_god",
+    "description": "+80% Vitality Damage\n+20 Offensive Ability\n\n+80% Chaos Damage\n+20 Offensive Ability\n\n+35 Spirit\n+3% Offensive Ability\nBonus to All Pets: +30% to All Damage, +5% Attack Speed\n\n+45 Offensive Ability\n+25 Defensive Ability\n15% Chaos Resistance\n\n+100% Vitality Damage\n+100% Chaos Damage\n\n10-36 Chaos Damage\nBonus to All Pets: +60% to All Damage, +10% Crit Damage\n\nHungering Void (100% Chance on Attack)\n\nx Energy Cost/secondx Health Cost/secondAoEx% Crit Damagex% Vitality Damagex% Chaos Damage+x% Total Speedx Chaos Retaliationx% Chance of 3 Seconds of Terrify RetaliationPet Bonus:x% Total Damagex% Crit Damagex% Chance of Stun Target for 1 Secondx% Chance of 30% Slow Target for 3 Seconds"
+  },
+  {
+    "name": "Ishtak, the Spring Maiden",
+    "points": 6,
+    "requirements": {
+      "order": 10,
+      "primordial": 15
+    },
+    "rewards": {},
+    "imageSrc": "ishtak_the_spring_maiden",
+    "description": "+300 Health\n+300 Energy\n\n+3% Spirit\n+3% Defensive Ability\nBonus to All Pets: +3% Defensive Ability\n\n+4% Total Speed\n30% Slow Resistance\nBonus to All Pets: +4% Total Speed\n\n+300 Health\n20% Bleeding Resistance\nBonus to All Pets: 20% Bleeding Resistance\n\n+300 Health\n25% Poison & Acid Resistance\nBonus to All Pets: 25% Poison & Acid Resistance\n\nNature's Guardian (25% Chance when Hit)\n\nx% Damage AbsorptionBonus to All Pets:x Physical DamageTaunt target+x Offensive Ability+x Defensive Ability+x Health Regenerated per Second\n"
+  },
+  {
+    "name": "Leviathan",
+    "points": 7,
+    "requirements": {
+      "ascendant": 13,
+      "eldritch": 13
+    },
+    "rewards": {},
+    "imageSrc": "leviathan",
+    "description": "8 Cold Damage \n+80% Cold Damage\n\n+25 Physique \n+5% Health\n\n+10% Energy \n+40 Defensive Ability \nIncreases Energy Regeneration by 20%\n\n+20% Pierce Resistance \n20% Cold Resistance\n\n12-16 Cold Damage \n+100% Cold Damage\n\n15 Frostburn Damage over 3 Seconds \n+100% Frostburn Damage \n+3% Maximum Cold Resistance\n\nWhirlpool (30% on Attack)\n\nAoEx Cold Damagex Frostburn Damage over 2 Secondsx% Slower target Movement for 2 Seconds"
+  },
+  {
+    "name": "Light of Empyrion",
+    "points": 7,
+    "requirements": {
+      "order": 8,
+      "primordial": 18
+    },
+    "rewards": {},
+    "imageSrc": "light_of_empyrion",
+    "description": "15% Elemental Resistance\nBonus to All Pets: 15% Elemental Resistance\n\n+80% Physical Damage +80% Fire Damage\n+10% Damage to Chthonics\n+30 Defensive Ability\n\n+6% Health\nBonus to All Pets: +6% Health\n\n+4% Health 15% Vitality Resistance\nBonus to All Pets: +4% Health 15% Vitality Resistance\n\n20% Aether Resistance\n20% Chaos Resistance\nBonus to All Pets: 20% Aether Resistance 20% Chaos Resistance\n\n28-46 Physical Damage 55-91 Fire Damage\n+3% Maximum Aether Resistance\n+3% Maximum Chaos Resistance\nBonus to All Pets: +5% Maximum All Resistances\n\nLight of Empyrion (20% Chance when Hit by Melee Attacks)\n\n33% Main Hand Damagex Physical Damagex Fire DamageKnockdown target for x Secondsx Reduced target's Damage for y Seconds+50% Damage to Undead+50% Damage to Chthonics"
+  },
+  {
+    "name": "Mogdrogen the Wolf",
+    "points": 6,
+    "requirements": {
+      "ascendant": 15,
+      "eldritch": 12
+    },
+    "rewards": {},
+    "imageSrc": "mogdrogen_the_wolf",
+    "description": "+35 Offensive Ability \nBonus to All Pets: +5% Offensive Ability\n\n+80% Bleeding Damage \nBonus to All Pets: +30% Total Damage\n\n+30 Defensive Ability\n+20% Vitality Resistance\nBonus to All Pets: +6% Total Speed\n\n54 Bleeding Damage over 5 Seconds \n+80% Bleeding Damage with +50% Increased Duration\n\n+15% Elemental Resistance \n+15% Bleeding Resistance \n+3% Maximum Bleeding Resistance \nBonus to All Pets: +80% Total Damage\n\nHowl of Mogdrogen (20% Chance on Attack)\n\nx Bleeding Damage over 3 Seconds+x% Bleeding Damage15% Chance of x Reduced Target's Defensive Ability for 3 Seconds+x% Total SpeedBonus to All Pets:+x% Offensive Ability+x% Total Speed"
+  },
+  {
+    "name": "Obelisk of Menhir",
+    "points": 7,
+    "requirements": {
+      "order": 8,
+      "primordial": 15
+    },
+    "rewards": {},
+    "imageSrc": "obelisk_of_menhir",
+    "description": "Increases Armor by 7%\n\n+30 Defensive Ability\n+150 Armor\n\n+100% to All Retaliation Damage\n\n+25 Defensive Ability\n+5% Defensive Ability\n\n+5% Shield Block Chance\n+30% Shield Damage Blocked\n\nIncreases Armor by 4%\n30% Reduced Stun Duration\n30% Reduced Freeze Duration\n+3% Maximum Pierce Resistance\n\nStone Form (15% Chance on Block)\n\nAoEIncreases Armor by x%Increases Armor Absorption by x%x% Pierce Resistancex% Reduction in Poison Durationx% Reduction in Bleeding Duration+x% to All Retaliation Damage\n"
+  },
+  {
+    "name": "Oleron",
+    "points": 7,
+    "requirements": {
+      "ascendant": 20,
+      "order": 7
+    },
+    "rewards": {},
+    "imageSrc": "oleron",
+    "description": "+20 Physique\n+20 Cunning\n+100 Health\n\n+80% Physical Damage\n+80% Internal Trauma Damage\n\n+30 Offensive Ability\n20% Pierce Resistance\n10% Bleeding Resistance\n\n+200 Health\n4% Physical Resistance\n\n9-12 Physical Damage\n+100% Physical Damage\n\n125 Internal Trauma over 5 Seconds\n+100% Internal Trauma Damage\n+15 Offensive Ability\n+2% Maximum Pierce Resistance\n\nBlind Fury (100% Chance on Critical Attack)\n\n(Requires a Melee Weapon)AoEx% Weapon Damagex Internal Trauma Damagex Bleeding DamageSlower Enemy AttackPhysical Resist Reduction"
+  },
+  {
+    "name": "Rattosh, the Veilwarden",
+    "points": 6,
+    "requirements": {
+      "chaos": 6,
+      "eldritch": 10,
+      "order": 6
+    },
+    "rewards": {},
+    "imageSrc": "rattosh_the_vellwarden",
+    "description": "+150 Health\n+20 Offensive Ability\n\n+80% Vitality Damage\n+80% Aether Damage\n\n+150% Vitality Decay with +50% Duration\n+250 Health\n+35 Offensive Ability\n\n438 Vitality Decay over 3 Seconds\n+100% Vitality Damage\n+100% Aether Damage\n\n+250 Health\n15% Pierce Resistance\n15% Bleeding Resistance\n\nWill of Rattosh (15% Chance on Attack)\n\nx Vitality Damagex Aether Damage-x% Vitality Resistance-x% Life Leech Resistance"
+  },
+  {
+    "name": "Spear of the Heavens",
+    "points": 6,
+    "requirements": {
+      "chaos": 7,
+      "primordial": 20
+    },
+    "rewards": {},
+    "imageSrc": "spear_of_the_heavens",
+    "description": " 80% Lightning Damage\n+20 Offensive Ability\n\n80% Aether Damage\n+20 Offensive Ability\n\n+5% Offensive Ability\n15% Aether Resistance\n\n+10% Crit Damage\n20% Lightning Resistance\n\n+100% Lightning Damage\n+100% Aether Damage\n+3% Maximum Lightning Resistance\n\nSpear of the Heavens (50% Chance when Hit)\n\nx Lightning Damagex Aether DamageStun target for 1 second\n"
+  },
+  {
+    "name": "Tree of Life",
+    "points": 6,
+    "requirements": {
+      "order": 7,
+      "primordial": 20
+    },
+    "rewards": {},
+    "imageSrc": "tree_of_life",
+    "description": "+5% Health \nBonus to All Pets: +5% Health\n\n+20 Health Regenerated per Second \nBonus to All Pets: Increases H ealth Regeneration by 20%\n\n+8% Health \nBonus to All Pets: +5% Health\n\n+30 Defensive Ability \n+15 Health Regenerated per Second \nBonus to All Pets: Increases Health Regeneration by 20%\n\n+4% Health \nIncreases Health Regeneration by 20% \nBonus to All Pets: +50 Health Regenerated per Second\n\nHealing Rain (25% when Hit)\n\nx% + y Health Restored+x Health Regenerated per second+x Energy Regenerated per secondIncreases Health regeneration by x%Increases Energy Regeneration by x%\n"
+  },
+  {
+    "name": "Ulzuin's Torch",
+    "points": 7,
+    "requirements": {
+      "chaos": 8,
+      "eldritch": 15
+    },
+    "rewards": {},
+    "imageSrc": "ulzuins_torch",
+    "description": " +80% Fire Damage\n+20 Offensive Ability\n\n+5% Offensive Ability\n15% Chaos Resistance\n\n+10% Crit Damage\n+5% Movement Speed\n\n+100% Fire Damage\n20% Fire Resistance\n\n75 Burn Damage over 3 Seconds\n+100% Burn Damage\n+3% Maximum Fire Resistance\n\n+100% Burn Damage with +100% Increased Duration\n\nMeteor Shower (30% Chance on Attack)\n\nAoEx Physical Damagex Fire Damagex Burn Damage"
+  },
+  {
+    "name": "Ultos, Shepherd of Storms",
+    "points": 6,
+    "requirements": {
+      "chaos": 6,
+      "eldritch": 10,
+      "primordial": 10
+    },
+    "rewards": {},
+    "imageSrc": "ultos_shepherd_of_storms",
+    "description": " +80% Cold Damage\n+25 Offensive Ability\n\n+80% Lightning Damage\n+25 Offensive Ability\n\n+180 Health\n15% Chaos Resistance\n\n+5% Crit Damage\n+120% Frostburn Damage\n+120% Electrocute Damage\n+20 Offensive Ability\n\n3-20 Lightning Damage\n+100% Cold Damage\n+100% Lightning Damage\n\nHand of Ultos (100% Chance on Critical Attack)\n\nx% Main Hand Damagex Lightning Damagex Electrocute Damage over 2 SecondsStun Target for x Secondsx% Reduced target's Elemental Resistances for 3 Seconds \n"
+  },
+  {
+    "name": "Unknown Soldier",
+    "points": 7,
+    "requirements": {
+      "ascendant": 15,
+      "order": 8
+    },
+    "rewards": {},
+    "imageSrc": "unknown_soldier",
+    "description": "+60% Pierce Damage\n+15 Offensive Ability\n\n54 Bleeding Damage over 3 Seconds\n+80% Bleeding Damage\n\n+280 Health\n+5% Attack Speed\n\n+80% Pierce Damage\n+80% Bleeding Damage\n\n+4% Health\n+40 Offensive Ability\n\n12 Piercing Damage\n+10% Crit Damage\n\nLiving Shadow (100% Chance on Critical Attack)\n\nSummon Limitx Piercing Damagex Bleeding Damage+x% Movement Speed"
+  },
+  {
+    "name": "Vire, the Stone Matron",
+    "points": 6,
+    "requirements": {
+      "ascendant": 12,
+      "primordial": 18
+    },
+    "rewards": {},
+    "imageSrc": "vire_the_stone_matron",
+    "description": "+150 Health\n+75 Armor\n\n10% Aether Resistance\n10% Chaos Resistance\n70 Physical Damage Retaliation\n\n+4% Health\n+40 Armor\n+12% Shield Damage Blocked\n\n+80% Physical Damage\n+80% Internal Trauma Damage\n+3% Cunning\n+80% to All Retaliation Damage\n\n4% Physical Resistance\n20% Pierce Resistance\n20% Bleeding Resistance\n\nFist of Vire (20% Chance when Hit)\n\nx% Main Hand Damagex Physical Damagex Internal Trauma over 5 SecondsPetrify target for x Seconds"
+  },
+  {
+    "name": "Yugol, the Insatiable Night",
+    "points": 6,
+    "requirements": {
+      "chaos": 7,
+      "eldritch": 20
+    },
+    "rewards": {},
+    "imageSrc": "yugol_the_instiable_night",
+    "description": "+80% Cold Damage\n+25 Offensive Ability\n\n+80% Acid Damage\n+25 Offensive Ability\n\n25% Vitality Resistance\n10% Reflected Damage Reduction\n\n+100% Cold Damage\n+100% Acid Damage\n+3% Spirit\n\n10 Cold Damage\n10 Acid Damage\n6% of Attack Damage converted to Health\n40% Life Leech Resistance\n\nBlack Blood of Yugol (30% Chance when Hit)\n\nx Second Skill RechargeSummon LimitLives for x Secondsx Meter Radiusx Cold Damagex Acid DamageIncreases Health Regeneration by -x%-25% Movement Speed"
+  },
+  {
+    "name": "Korvaak, the eldritch Sun",
+    "points": 6,
+    "requirements": {
+      "eldritch": 10,
+      "primordial": 18
+    },
+    "rewards": {},
+    "imageSrc": "korvaak_the_eldritch_sun",
+    "description": "+30% to All Damage\nBonus to All Pets: +30% to All Damage\n\n+6% Health\nBonus to All Pets: +6% Health\n\n20% Chaos Resistance\nBonus to All Pets: 20% Chaos Resistance\n\n+30% to All Damage\n+5% Offensive Ability\nBonus to All Pets: +30% to All Damage\n+5% Offensive Ability\n\n+30% to All Damage\n+8% Crit Damage\nBonus to All Pets: +30% to All Damage\n+8% Crit Damage\n\nEye of Korvaak (100% Chance on Critical Attack)\n\nx Second Skill Recharge6 Projectiles100% Chance to pass through Enemies1 Meter Radiusx % Main Hand Damagex Chance of Petrify Target for 0.8 secondsx Reduced target's Offensive Ability for 5 secondsx Reduced target's Defensive Ability for 5 seconds"
+  },
+  {
+    "name": "Azrakaa, the Eternal Sands",
+    "points": 6,
+    "requirements": {
+      "ascendant": 12,
+      "order": 6,
+      "primordial": 8
+    },
+    "rewards": {},
+    "imageSrc": "azrakaa_the_eternal_sands",
+    "description": "+80% Physical Damage\n+80% Pierce Damage\n\n+180 Health\n+90 Armor\n\n+180 Health\n+50 Defensive Ability\n+6% Movement Speed\n\n+50 Defensive Ability\n+6% Attack Speed\n+6% Casting Speed\n\n+52-64 Pierce Damage\n+100% Physical Damage\n+100% Pierce Damage\n\nShifting Sands (20% Chance on Attack)\n\nx Second Skill Rechargex Second Duration100% Chance to pass through Enemies2 Meter Radiusx % Main Hand Damagex Physical Damagex Piercing Damagex % Crit Damagex Reduced target's Offensive Ability for 3 secondsx Chance of Impaired Aim to target for 3 seconds"
+  }
+]
