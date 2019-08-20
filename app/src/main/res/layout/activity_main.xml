@@ -1,128 +1,140 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#D6D6D6"
-        tools:context=".MainActivity" android:orientation="vertical">
+        android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <!-- Scrollable view here -->
+
+    <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content" android:layout_marginTop="?attr/actionBarSize"
+            app:elevation="0dp"
+            android:translationZ="0.1dp">
 
-        <include
-                android:layout_height="wrap_content"
-                android:layout_width="0dp"
-                layout="@layout/toolbar_search" android:id="@+id/include"
-                app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-        />
+        <com.google.android.material.appbar.CollapsingToolbarLayout android:layout_width="match_parent"
+                                                                    android:layout_height="wrap_content"
+                                                                    app:layout_scrollFlags="scroll|enterAlways|exitUntilCollapsed|snap">
 
-        <TextView
-                android:text="Total"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView"
-                app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp" android:textSize="18sp"
-                android:textStyle="bold" app:layout_constraintTop_toBottomOf="@+id/include"/>
-        <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/vg_current_affinities"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
-                android:layout_marginTop="8dp"
-                app:layout_constraintTop_toBottomOf="@+id/textView">
-            <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" app:srcCompat="@drawable/ascendant_icon"
-                    android:id="@+id/iv_ascendant_current"
-                    android:layout_marginStart="16dp"/>
-            <TextView
-                    android:text="0"
-                    android:layout_width="wrap_content"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/tv_ascendant_current"
-                    android:layout_marginStart="8dp"
-                    android:layout_gravity="center_vertical"/>
-            <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" app:srcCompat="@drawable/chaos_icon"
-                    android:id="@+id/iv_chaos_current"
-                    android:layout_marginStart="16dp"
-            />
-            <TextView
-                    android:text="0"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/tv_chaos_current"
-                    android:layout_marginStart="8dp"
-                    android:layout_gravity="center_vertical"/>
-            <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" app:srcCompat="@drawable/eldritch_icon"
-                    android:id="@+id/iv_eldritch_current"
-                    android:layout_marginStart="16dp"
-            />
-            <TextView
-                    android:text="0"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/tv_eldritch_current"
-                    android:layout_marginStart="8dp"
-                    android:layout_gravity="center_vertical"/>
-            <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" app:srcCompat="@drawable/order_icon"
-                    android:id="@+id/iv_order_current"
-                    android:layout_marginStart="16dp"
-            />
-            <TextView
-                    android:text="0"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/tv_order_current"
-                    android:layout_marginStart="8dp"
-                    android:layout_gravity="center_vertical"/>
-            <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" app:srcCompat="@drawable/primordial_icon"
-                    android:id="@+id/iv_primordial_current"
-                    android:layout_marginStart="16dp"/>
-            <TextView
-                    android:text="0"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/tv_primordial_current"
-                    android:layout_marginStart="8dp"
-                    android:layout_gravity="center_vertical"/>
-        </LinearLayout>
-        <TextView
-                android:text="Points Used: 0 "
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/tv_points_used" app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginEnd="16dp"
-                android:textSize="18sp" app:layout_constraintTop_toBottomOf="@+id/include"
-                android:layout_marginTop="16dp"/>
-        <androidx.recyclerview.widget.RecyclerView
+                    app:layout_collapseMode="parallax"
+            >
+
+                <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/vg_current_affinities"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+                        android:layout_marginTop="8dp"
+                        app:layout_constraintTop_toBottomOf="@id/textView4"
+                        app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="8dp">
+                    <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" app:srcCompat="@drawable/ascendant_icon"
+                            android:id="@+id/iv_ascendant_current"
+                            android:layout_marginStart="16dp"/>
+                    <TextView
+                            android:text="0"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tv_ascendant_current"
+                            android:layout_marginStart="8dp"
+                            android:layout_gravity="center_vertical"/>
+                    <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" app:srcCompat="@drawable/chaos_icon"
+                            android:id="@+id/iv_chaos_current"
+                            android:layout_marginStart="16dp"
+                    />
+                    <TextView
+                            android:text="0"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tv_chaos_current"
+                            android:layout_marginStart="8dp"
+                            android:layout_gravity="center_vertical"/>
+                    <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" app:srcCompat="@drawable/eldritch_icon"
+                            android:id="@+id/iv_eldritch_current"
+                            android:layout_marginStart="16dp"
+                    />
+                    <TextView
+                            android:text="0"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tv_eldritch_current"
+                            android:layout_marginStart="8dp"
+                            android:layout_gravity="center_vertical"/>
+                    <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" app:srcCompat="@drawable/order_icon"
+                            android:id="@+id/iv_order_current"
+                            android:layout_marginStart="16dp"
+                    />
+                    <TextView
+                            android:text="0"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tv_order_current"
+                            android:layout_marginStart="8dp"
+                            android:layout_gravity="center_vertical"/>
+                    <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" app:srcCompat="@drawable/primordial_icon"
+                            android:id="@+id/iv_primordial_current"
+                            android:layout_marginStart="16dp"/>
+                    <TextView
+                            android:text="0"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tv_primordial_current"
+                            android:layout_marginStart="8dp"
+                            android:layout_gravity="center_vertical"/>
+                </LinearLayout>
+                <TextView
+                        android:text="Total"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textView4"
+                        app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp" android:textSize="18sp"
+                        android:textStyle="bold" app:layout_constraintTop_toBottomOf="@+id/include"/>
+                <TextView
+                        android:text="Points Used: 0 "
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tv_points_used" app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_marginEnd="16dp"
+                        android:textSize="18sp" app:layout_constraintTop_toBottomOf="@+id/include"
+                        android:layout_marginTop="16dp"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:context=".MainActivity" android:id="@+id/rv_constellations"
+            tools:listitem="@layout/view_constellation"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            android:layout_marginBottom="?attr/actionBarSize"/>
+    <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="8dp">
+
+        <androidx.appcompat.widget.Toolbar
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                tools:context=".MainActivity" android:id="@+id/rv_constellations"
-                tools:listitem="@layout/view_constellation"
-                app:layout_constraintTop_toBottomOf="@+id/vg_current_affinities"
-                app:layout_constraintBottom_toBottomOf="parent" android:layout_marginTop="8dp"/>
+                android:layout_height="?attr/actionBarSize"
+                android:id="@+id/toolbar"/>
         <com.myriadmobile.searchview.MMSearchView android:layout_width="match_parent"
-                                                  android:layout_height="0dp"
-                                                  app:layout_constraintEnd_toEndOf="parent"
-                                                  app:layout_constraintStart_toStartOf="@+id/include"
-                                                  app:layout_constraintBottom_toBottomOf="@+id/include"
-                                                  app:layout_constraintTop_toTopOf="@+id/include"
+                                                  android:layout_height="?attr/actionBarSize"
                                                   android:visibility="invisible"
                                                   android:id="@+id/search_view"
                                                   app:searchFilters="ignoreCase|ignoreSpecialCharacters|ignoreSpaces"/>
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</LinearLayout>
+    </FrameLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

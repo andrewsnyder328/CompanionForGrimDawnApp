@@ -16,7 +16,6 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.myriadmobile.searchview.MMSearchView
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.toolbar_search.*
 import java.io.InputStreamReader
 
 class MainActivity : AppCompatActivity(), MMSearchView.ISearchListener {
