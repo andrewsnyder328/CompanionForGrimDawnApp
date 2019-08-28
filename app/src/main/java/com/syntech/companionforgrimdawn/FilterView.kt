@@ -19,7 +19,8 @@ class FilterView @JvmOverloads constructor(
                 cb_chaos.isChecked,
                 cb_eldritch.isChecked,
                 cb_order.isChecked,
-                cb_primordial.isChecked
+                cb_primordial.isChecked,
+                cb_starred.isChecked
             )
         }
 
@@ -38,5 +39,6 @@ class FilterView @JvmOverloads constructor(
         cb_eldritch.isChecked = filter.eldritch
         cb_order.isChecked = filter.order
         cb_primordial.isChecked = filter.primordial
+        cb_starred.isChecked = filter.starred
     }
 }

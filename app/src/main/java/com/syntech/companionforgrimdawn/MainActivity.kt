@@ -5,6 +5,7 @@ import android.content.ClipboardManager
 import android.content.Context
 import android.graphics.PorterDuff
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -18,6 +19,7 @@ import com.myriadmobile.searchview.MMSearchView
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.InputStreamReader
 
+private const val KEY_ENFORCE_RULES = "KEY_ENFORCE_RULES"
 class MainActivity : AppCompatActivity(), MMSearchView.ISearchListener {
 
     private lateinit var constellations: MutableList<Constellation>
@@ -26,6 +28,13 @@ class MainActivity : AppCompatActivity(), MMSearchView.ISearchListener {
     private lateinit var filter: Filter
     private var currentSearch: List<Int>? = null
     private lateinit var pathHistory: String
+    var enforceRules: Boolean
+        get() {
+            return getSharedPreferences("default", Context.MODE_PRIVATE).getBoolean(KEY_ENFORCE_RULES, true)
+        }
+        set(value) {
+            getSharedPreferences("default", Context.MODE_PRIVATE).edit().putBoolean(KEY_ENFORCE_RULES, value).apply()
+        }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,7 +60,7 @@ class MainActivity : AppCompatActivity(), MMSearchView.ISearchListener {
             constellations.addAll(Gson().fromJson<MutableList<Constellation>>(json, token))
         }
 
-        adapter = ConstellationAdapter(resources, ::onAddItemClicked, ::onRemoveItemClicked)
+        adapter = ConstellationAdapter(resources, ::onAddItemClicked, ::onRemoveItemClicked, ::onItemStarred)
         rv_constellations.layoutManager = LinearLayoutManager(this)
         rv_constellations.adapter = adapter
         updateResources()
@@ -61,14 +70,31 @@ class MainActivity : AppCompatActivity(), MMSearchView.ISearchListener {
     }
 
     private fun onAddItemClicked(item: Constellation) {
-        if (constellations.filter { it.selected }.sumBy { it.points } + item.points > 55) {
+        if (enforceRules && constellations.filter { it.selected }.sumBy { it.points } + item.points > 55) {
             MaterialDialog(this)
                 .title(text = getString(R.string.too_many_points_title))
                 .message(text = getString(R.string.too_many_points_message))
                 .positiveButton(android.R.string.ok)
                 .show()
+        } else if (enforceRules && item.steppingStone != null) {
+            item.steppingStone?.let {
+                MaterialDialog(this)
+                    .title(text = "Use temporary devotion?")
+                    .message(text = "You don't meet the requirements to unlock ${item.name}. However, if you add ${it.name} (${it.points} points) temporarily it will allow you to unlock ${item.name}. \n\nDo you want to add ${it.name} temporarily to unlock ${item.name}?")
+                    .positiveButton(text = "Yes") { dialog ->
+                        onAddItemClicked(it)
+                        onAddItemClicked(item)
+                        onRemoveItemClicked(it)
+                    }
+                    .negativeButton(text = "No")
+                    .show()
+            }
         } else {
-            pathHistory += "\n${pathHistory.lines().size}: Add ${item.name}"
+            pathHistory += if (!enforceRules) {
+                "\n*${pathHistory.lines().size}: Add ${item.name}"
+            } else {
+                "\n${pathHistory.lines().size}: Add ${item.name}"
+            }
             constellations[constellations.indexOf(item)].selected = true
             updateResources()
             updateDataSet()
@@ -86,6 +112,7 @@ class MainActivity : AppCompatActivity(), MMSearchView.ISearchListener {
             tempResources.primordial += it.rewards.primordial
         }
         var isValid = true
+        var dependentDevotions = ""
         constellations.filter { it.selected && it != item }.forEach {
             if (it.requirements.ascendant > tempResources.ascendant
                 || it.requirements.chaos > tempResources.chaos
@@ -93,32 +120,49 @@ class MainActivity : AppCompatActivity(), MMSearchView.ISearchListener {
                 || it.requirements.order > tempResources.order
                 || it.requirements.primordial > tempResources.primordial
             ) {
+                dependentDevotions += "\n>" + it.name
                 isValid = false
             }
         }
-        if (isValid) {
-            pathHistory += "\n${pathHistory.lines().size}: Remove ${item.name}"
+        if (enforceRules && !isValid) {
+            MaterialDialog(this)
+                .title(R.string.cannot_remove_title)
+                .message(text = getString(R.string.cannot_remove_message) + dependentDevotions)
+                .positiveButton(android.R.string.ok)
+                .show()
+        } else {
+            if (!enforceRules) {
+                pathHistory += "\n*${pathHistory.lines().size}: Remove ${item.name}"
+            } else {
+                pathHistory += "\n${pathHistory.lines().size}: Remove ${item.name}"
+            }
             constellations[constellations.indexOf(item)].selected = false
             updateResources()
             updateDataSet()
             save()
-        } else {
-            MaterialDialog(this)
-                .title(R.string.cannot_remove_title)
-                .message(R.string.cannot_remove_message)
-                .positiveButton(android.R.string.ok)
-                .show()
         }
     }
 
+    private fun onItemStarred(item: Constellation) {
+        constellations[constellations.indexOf(item)].starred = !constellations[constellations.indexOf(item)].starred
+        updateResources()
+        updateDataSet()
+        save()
+    }
+
     private fun updateDataSet() {
+        setSteppingStones()
         val dataset = mutableListOf<Constellation>()
         currentSearch?.let {
             dataset.addAll(constellations.slice(it))
         } ?: dataset.addAll(constellations)
         dataset.sortBy { it.name }
-        dataset.sortByDescending { it.isAvailable(resources) }
+        if (enforceRules) {
+            dataset.sortByDescending { it.steppingStone != null }
+            dataset.sortByDescending { it.isAvailable(resources) }
+        }
         dataset.sortByDescending { it.selected }
+        adapter.updateEnforceRules(enforceRules)
         adapter.setItems(dataset.asSequence().filter {
             if (filter.ascendant) it.rewards.ascendant > 0 else true
         }.filter {
@@ -129,6 +173,8 @@ class MainActivity : AppCompatActivity(), MMSearchView.ISearchListener {
             if (filter.order) it.rewards.order > 0 else true
         }.filter {
             if (filter.primordial) it.rewards.primordial > 0 else true
+        }.filter {
+            if (filter.starred) it.starred else true
         }.toList())
     }
 
@@ -145,7 +191,25 @@ class MainActivity : AppCompatActivity(), MMSearchView.ISearchListener {
         tv_primordial_current.text = resources.primordial.toString()
 
         val points = constellations.filter { it.selected }.sumBy { it.points }
-        tv_points_used.text = "${getString(R.string.points_used)}$points"
+        tv_points_used.text = "${getString(R.string.points_used)} $points"
+
+        val targetAscendant = constellations.filter { it.starred }.map { it.requirements.ascendant }.max() ?: 0
+        tv_ascendant_starred.text = targetAscendant.toString()
+        val targetChaos = constellations.filter { it.starred }.map { it.requirements.chaos }.max() ?: 0
+        tv_chaos_starred.text = targetChaos.toString()
+        val targetEldritch = constellations.filter { it.starred }.map { it.requirements.eldritch }.max() ?: 0
+        tv_eldritch_starred.text = targetEldritch.toString()
+        val targetOrder = constellations.filter { it.starred }.map { it.requirements.order }.max() ?: 0
+        tv_order_starred.text = targetOrder.toString()
+        val targetPrimordial = constellations.filter { it.starred }.map { it.requirements.primordial }.max() ?: 0
+        tv_primordial_starred.text = targetPrimordial.toString()
+        if (targetAscendant == 0 && targetChaos == 0 && targetEldritch == 0 && targetOrder == 0 && targetPrimordial == 0) {
+            vg_starred_affinities.visibility = View.GONE
+            tv_starred.visibility = View.GONE
+        } else {
+            vg_starred_affinities.visibility = View.VISIBLE
+            tv_starred.visibility = View.VISIBLE
+        }
     }
 
     private fun setupToolbar() {
@@ -159,6 +223,8 @@ class MainActivity : AppCompatActivity(), MMSearchView.ISearchListener {
                 PorterDuff.Mode.SRC_IN
             )
         }
+
+        toolbar.menu.findItem(R.id.action_enforce_rules).isChecked = enforceRules
         toolbar.setOnMenuItemClickListener {
             when (it.itemId) {
                 R.id.action_filter -> {
@@ -168,6 +234,16 @@ class MainActivity : AppCompatActivity(), MMSearchView.ISearchListener {
                         .customView(view = view)
                         .positiveButton(R.string.apply_filter) {
                             onFilterApplied(view.filter)
+                            save()
+                        }
+                        .negativeButton(R.string.clear) {
+                            filter.ascendant = false
+                            filter.chaos = false
+                            filter.eldritch = false
+                            filter.order = false
+                            filter.primordial = false
+                            filter.starred = false
+                            onFilterApplied(filter)
                             save()
                         }
                         .show()
@@ -191,6 +267,8 @@ class MainActivity : AppCompatActivity(), MMSearchView.ISearchListener {
                     pathHistory.lines().forEach { line ->
                         pathString += "$line\n"
                     }
+                    pathString += "\n\n(Steps marked with * were done while rules weren't enforced.)"
+
                     MaterialDialog(this)
                         .title(R.string.path)
                         .message(text = pathString)
@@ -210,13 +288,22 @@ class MainActivity : AppCompatActivity(), MMSearchView.ISearchListener {
                     filter.eldritch = false
                     filter.order = false
                     filter.primordial = false
-                    constellations.forEach { constellation -> constellation.selected = false }
+                    filter.starred = false
+                    constellations.forEach { constellation ->
+                        constellation.selected = false
+                        constellation.starred = false
+                    }
                     updateResources()
                     updateDataSet()
                     save()
                 }
                 R.id.action_search -> {
                     search_view.showSearch(null)
+                }
+                R.id.action_enforce_rules -> {
+                    it.isChecked = !it.isChecked
+                    enforceRules = it.isChecked
+                    updateDataSet()
                 }
             }
             false
@@ -252,5 +339,50 @@ class MainActivity : AppCompatActivity(), MMSearchView.ISearchListener {
         val save = Save(resources, constellations, filter, pathHistory)
         val saveJSON = Gson().toJson(save)
         prefs.edit().putString("save", saveJSON).apply()
+    }
+
+    private fun setSteppingStones() {
+        constellations.forEach { it.steppingStone = null }
+        constellations.filter { !it.isAvailable(resources) }.forEach { constellation1 ->
+            val steppingStones = mutableListOf<Constellation>()
+            constellations.filter {
+                it.name != constellation1.name
+                        && !it.selected
+                        && it.isAvailable(resources)
+                        && (constellations.sumBy { constellation -> if (constellation.selected) constellation.points else 0 } + it.points) <= 55
+            }.forEach { constellation2 ->
+                val tempResources = Resource()
+                constellations.filter { it.selected }.forEach {
+                    tempResources.ascendant += it.rewards.ascendant
+                    tempResources.chaos += it.rewards.chaos
+                    tempResources.eldritch += it.rewards.eldritch
+                    tempResources.order += it.rewards.order
+                    tempResources.primordial += it.rewards.primordial
+                }
+                tempResources.ascendant += constellation2.rewards.ascendant
+                tempResources.chaos += constellation2.rewards.chaos
+                tempResources.eldritch += constellation2.rewards.eldritch
+                tempResources.order += constellation2.rewards.order
+                tempResources.primordial += constellation2.rewards.primordial
+                if (constellation1.isAvailable(tempResources)
+                    && (constellations.sumBy { if (it.selected) it.points else 0 } + constellation2.points + constellation1.points) <= 55
+                ) {
+                    tempResources.ascendant += constellation1.rewards.ascendant
+                    tempResources.chaos += constellation1.rewards.chaos
+                    tempResources.eldritch += constellation1.rewards.eldritch
+                    tempResources.order += constellation1.rewards.order
+                    tempResources.primordial += constellation1.rewards.primordial
+                    tempResources.ascendant -= constellation2.rewards.ascendant
+                    tempResources.chaos -= constellation2.rewards.chaos
+                    tempResources.eldritch -= constellation2.rewards.eldritch
+                    tempResources.order -= constellation2.rewards.order
+                    tempResources.primordial -= constellation2.rewards.primordial
+                    if (constellation1.isAvailable(tempResources)) {
+                        steppingStones.add(constellation2)
+                    }
+                }
+            }
+            constellation1.steppingStone = steppingStones.minBy { it.points }
+        }
     }
 }

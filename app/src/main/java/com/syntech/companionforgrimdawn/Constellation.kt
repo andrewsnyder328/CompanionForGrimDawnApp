@@ -7,7 +7,9 @@ data class Constellation(
     val rewards: Resource,
     val imageSrc: String,
     var selected: Boolean,
-    val description: String
+    val description: String,
+    var starred: Boolean,
+    var steppingStone: Constellation?
 ) {
 
     fun isAvailable(resources: Resource): Boolean {

@@ -1,11 +1,11 @@
 <resources>
     <string name="app_name">Companion for Grim Dawn</string>
-    <string name="too_many_points_message">Adding this devotion will use more than 50 points. Remove something else
+    <string name="too_many_points_message">Adding this devotion will use more than 55 points. Remove something else
         first.
     </string>
     <string name="too_many_points_title">Not Enough Points</string>
     <string name="cannot_remove_title">Cannot Remove</string>
-    <string name="cannot_remove_message">One or more devotions depend on this.</string>
+    <string name="cannot_remove_message">The following devotions depend on this:</string>
     <string name="points_used">Points Used:</string>
     <string name="toolbar_title">Companion For Grim Dawn</string>
     <string name="filter">Filter</string>
@@ -15,4 +15,7 @@
     <string name="show_path">Show Path</string>
     <string name="path">Path</string>
     <string name="copy">Copy</string>
+    <string name="clear">Clear</string>
+    <string name="starred">Starred</string>
+    <string name="enforce_rules">Enforce Rules</string>
 </resources>

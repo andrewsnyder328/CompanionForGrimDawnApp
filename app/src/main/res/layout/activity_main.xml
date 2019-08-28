@@ -18,99 +18,195 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:layout_collapseMode="parallax"
-            >
+                    app:layout_collapseMode="none"
+                    android:paddingBottom="8dp">
 
-                <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:id="@+id/vg_current_affinities"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
-                        android:layout_marginTop="8dp"
-                        app:layout_constraintTop_toBottomOf="@id/textView4"
-                        app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="8dp">
-                    <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" app:srcCompat="@drawable/ascendant_icon"
-                            android:id="@+id/iv_ascendant_current"
-                            android:layout_marginStart="16dp"/>
-                    <TextView
-                            android:text="0"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/tv_ascendant_current"
-                            android:layout_marginStart="8dp"
-                            android:layout_gravity="center_vertical"/>
-                    <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" app:srcCompat="@drawable/chaos_icon"
-                            android:id="@+id/iv_chaos_current"
-                            android:layout_marginStart="16dp"
-                    />
-                    <TextView
-                            android:text="0"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/tv_chaos_current"
-                            android:layout_marginStart="8dp"
-                            android:layout_gravity="center_vertical"/>
-                    <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" app:srcCompat="@drawable/eldritch_icon"
-                            android:id="@+id/iv_eldritch_current"
-                            android:layout_marginStart="16dp"
-                    />
-                    <TextView
-                            android:text="0"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/tv_eldritch_current"
-                            android:layout_marginStart="8dp"
-                            android:layout_gravity="center_vertical"/>
-                    <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" app:srcCompat="@drawable/order_icon"
-                            android:id="@+id/iv_order_current"
-                            android:layout_marginStart="16dp"
-                    />
-                    <TextView
-                            android:text="0"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/tv_order_current"
-                            android:layout_marginStart="8dp"
-                            android:layout_gravity="center_vertical"/>
-                    <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" app:srcCompat="@drawable/primordial_icon"
-                            android:id="@+id/iv_primordial_current"
-                            android:layout_marginStart="16dp"/>
-                    <TextView
-                            android:text="0"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/tv_primordial_current"
-                            android:layout_marginStart="8dp"
-                            android:layout_gravity="center_vertical"/>
-                </LinearLayout>
                 <TextView
                         android:text="Total"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/textView4"
                         app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp" android:textSize="18sp"
-                        android:textStyle="bold" app:layout_constraintTop_toBottomOf="@+id/include"/>
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="@android:color/white" app:layout_constraintTop_toTopOf="parent"
+                        android:layout_marginTop="8dp"/>
                 <TextView
                         android:text="Points Used: 0 "
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/tv_points_used" app:layout_constraintEnd_toEndOf="parent"
                         android:layout_marginEnd="16dp"
-                        android:textSize="18sp" app:layout_constraintTop_toBottomOf="@+id/include"
-                        android:layout_marginTop="16dp"/>
+                        android:textSize="18sp"
+                        android:textColor="@android:color/white" app:layout_constraintTop_toTopOf="parent"
+                        android:layout_marginTop="8dp"/>
+                <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/vg_current_affinities"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_marginTop="8dp"
+                        app:layout_constraintTop_toBottomOf="@id/textView4"
+                >
+                    <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" app:srcCompat="@drawable/ascendant_icon"
+                            android:id="@+id/iv_ascendant_current"
+                            android:layout_marginStart="16dp" android:layout_weight="1"/>
+                    <TextView
+                            android:text="0"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tv_ascendant_current"
+                            android:layout_marginStart="8dp"
+                            android:layout_gravity="center_vertical" android:textColor="@android:color/white"
+                            android:layout_weight="1"/>
+                    <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" app:srcCompat="@drawable/chaos_icon"
+                            android:id="@+id/iv_chaos_current"
+                            android:layout_marginStart="16dp"
+                            android:layout_weight="1"/>
+                    <TextView
+                            android:text="0"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tv_chaos_current"
+                            android:layout_marginStart="8dp"
+                            android:layout_gravity="center_vertical" android:textColor="@android:color/white"
+                            android:layout_weight="1"/>
+                    <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" app:srcCompat="@drawable/eldritch_icon"
+                            android:id="@+id/iv_eldritch_current"
+                            android:layout_marginStart="16dp"
+                            android:layout_weight="1"/>
+                    <TextView
+                            android:text="0"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tv_eldritch_current"
+                            android:layout_marginStart="8dp"
+                            android:layout_gravity="center_vertical" android:textColor="@android:color/white"
+                            android:layout_weight="1"/>
+                    <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" app:srcCompat="@drawable/order_icon"
+                            android:id="@+id/iv_order_current"
+                            android:layout_marginStart="16dp"
+                            android:layout_weight="1"/>
+                    <TextView
+                            android:text="0"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tv_order_current"
+                            android:layout_marginStart="8dp"
+                            android:layout_gravity="center_vertical" android:textColor="@android:color/white"
+                            android:layout_weight="1"/>
+                    <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" app:srcCompat="@drawable/primordial_icon"
+                            android:id="@+id/iv_primordial_current"
+                            android:layout_marginStart="16dp" android:layout_weight="1"/>
+                    <TextView
+                            android:text="0"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tv_primordial_current"
+                            android:layout_marginStart="8dp"
+                            android:layout_gravity="center_vertical" android:textColor="@android:color/white"
+                            android:layout_weight="1" android:layout_marginEnd="16dp"/>
+                </LinearLayout>
+                <TextView
+                        android:text="@string/starred"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:id="@+id/tv_starred"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="@android:color/white"
+                        app:layout_constraintTop_toBottomOf="@+id/vg_current_affinities"
+                        app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"/>
+                <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_starred"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent" android:id="@+id/vg_starred_affinities"
+                        android:layout_marginTop="8dp">
+                    <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" app:srcCompat="@drawable/ascendant_icon"
+                            android:id="@+id/iv_ascendant_starred"
+                            android:layout_marginStart="16dp" android:layout_weight="1"/>
+                    <TextView
+                            android:text="0"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tv_ascendant_starred"
+                            android:layout_marginStart="8dp"
+                            android:layout_gravity="center_vertical" android:textColor="@android:color/white"
+                            android:layout_weight="1"/>
+                    <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" app:srcCompat="@drawable/chaos_icon"
+                            android:id="@+id/iv_chaos_starred"
+                            android:layout_marginStart="16dp"
+                            android:layout_weight="1"/>
+                    <TextView
+                            android:text="0"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tv_chaos_starred"
+                            android:layout_marginStart="8dp"
+                            android:layout_gravity="center_vertical" android:textColor="@android:color/white"
+                            android:layout_weight="1"/>
+                    <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" app:srcCompat="@drawable/eldritch_icon"
+                            android:id="@+id/iv_eldritch_starred"
+                            android:layout_marginStart="16dp"
+                            android:layout_weight="1"/>
+                    <TextView
+                            android:text="0"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tv_eldritch_starred"
+                            android:layout_marginStart="8dp"
+                            android:layout_gravity="center_vertical" android:textColor="@android:color/white"
+                            android:layout_weight="1"/>
+                    <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" app:srcCompat="@drawable/order_icon"
+                            android:id="@+id/iv_order_starred"
+                            android:layout_marginStart="16dp"
+                            android:layout_weight="1"/>
+                    <TextView
+                            android:text="0"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tv_order_starred"
+                            android:layout_marginStart="8dp"
+                            android:layout_gravity="center_vertical" android:textColor="@android:color/white"
+                            android:layout_weight="1"/>
+                    <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" app:srcCompat="@drawable/primordial_icon"
+                            android:id="@+id/iv_primordial_starred"
+                            android:layout_marginStart="16dp" android:layout_weight="1"/>
+                    <TextView
+                            android:text="0"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tv_primordial_starred"
+                            android:layout_marginStart="8dp"
+                            android:layout_gravity="center_vertical" android:textColor="@android:color/white"
+                            android:layout_weight="1" android:layout_marginEnd="16dp"/>
+                </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>

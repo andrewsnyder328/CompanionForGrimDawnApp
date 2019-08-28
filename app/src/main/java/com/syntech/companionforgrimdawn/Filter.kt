@@ -5,5 +5,6 @@ data class Filter(
     var chaos: Boolean = false,
     var eldritch: Boolean = false,
     var order: Boolean = false,
-    var primordial: Boolean = false
+    var primordial: Boolean = false,
+    var starred: Boolean = false
 )
