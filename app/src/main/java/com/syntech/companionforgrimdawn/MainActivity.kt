@@ -84,7 +84,6 @@ class MainActivity : AppCompatActivity(), MMSearchView.ISearchListener, IConstel
         }
     }
 
-    //TODO fix this
     override fun onAddItemClicked(item: Constellation) {
         if (enforceRules && constellations.filter { it.selected }.sumBy { it.points } + item.points > 55) {
             MaterialDialog(this)
@@ -110,9 +109,14 @@ class MainActivity : AppCompatActivity(), MMSearchView.ISearchListener, IConstel
                 "\n${pathHistory.lines().size}: Add ${item.name}"
             }
             constellations[constellations.indexOf(item)].selected = true
+            val current = constellations.filter { it.isAvailable(resources) }
             updateResources()
             updateDataSet()
             save()
+            val new = constellations.filter { !current.contains(it) && it.isAvailable(resources) }
+            if (new.isNotEmpty()) {
+                showNewConstellations(new)
+            }
         }
     }
 
@@ -138,6 +142,7 @@ class MainActivity : AppCompatActivity(), MMSearchView.ISearchListener, IConstel
                 isValid = false
             }
         }
+
         if (enforceRules && !isValid) {
             MaterialDialog(this)
                 .title(R.string.cannot_remove_title)
@@ -165,6 +170,8 @@ class MainActivity : AppCompatActivity(), MMSearchView.ISearchListener, IConstel
     }
 
     private fun useSteppingStone(tempItem: Constellation, newItem: Constellation) {
+        val current = constellations.filter { it.isAvailable(resources) }
+
         pathHistory += "\n${pathHistory.lines().size}: Add ${tempItem.name}"
 
         pathHistory += "\n${pathHistory.lines().size}: Add ${newItem.name}"
@@ -175,6 +182,12 @@ class MainActivity : AppCompatActivity(), MMSearchView.ISearchListener, IConstel
         updateResources()
         updateDataSet()
         save()
+
+        val new =
+            constellations.filter { it.isAvailable(resources) && !current.contains(it) && !it.selected }
+        if (new.isNotEmpty()) {
+            showNewConstellations(new)
+        }
     }
 
     private fun updateDataSet() {
@@ -271,6 +284,7 @@ class MainActivity : AppCompatActivity(), MMSearchView.ISearchListener, IConstel
                     .show {
                         title(text = "Unlocked Devotions")
                         message(text = newConstellations.joinToString("\n") { it.name })
+                        positiveButton(text = "Done")
                     }
             }
             .show()
