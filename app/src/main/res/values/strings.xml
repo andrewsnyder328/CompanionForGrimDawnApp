@@ -18,4 +18,14 @@
     <string name="clear">Clear</string>
     <string name="starred">Starred</string>
     <string name="enforce_rules">Enforce Rules</string>
+    <string name="match_any">Match Any</string>
+    <string name="match_all">Match All</string>
+    <string name="match_requirements">Match Requirements</string>
+    <string name="match_rewards">Match Rewards</string>
+    <string name="primordial">Primordial</string>
+    <string name="order">Order</string>
+    <string name="eldritch">Eldritch</string>
+    <string name="chaos">Chaos</string>
+    <string name="ascendant">Ascendant</string>
+    <string name="reward_includes">Reward includes:</string>
 </resources>

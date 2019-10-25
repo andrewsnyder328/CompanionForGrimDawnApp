@@ -43,5 +43,5 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'com.afollestad.material-dialogs:core:3.1.0'
-    implementation 'com.myriadmobile.library:mmsearchview:2.0.2'
+    implementation 'com.myriadmobile.library:mmsearchview:2.0.3'
 }

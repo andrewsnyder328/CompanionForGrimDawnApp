@@ -27,16 +27,14 @@ class ConstellationView @JvmOverloads constructor(
     fun setup(
         item: Constellation,
         resources: Resource,
-        addItemListener: (Constellation) -> Unit,
-        removeItemListener: (Constellation) -> Unit,
-        onStarredListener: (Constellation) -> Unit,
+        listener: IConstellationView,
         enforceRules: Boolean
     ) {
         tv_name.text = item.name
         tv_points.text = "Points: ${item.points}"
         setupResources(item)
-        setupButton(item, resources, addItemListener, removeItemListener, enforceRules)
-        setupStar(item, onStarredListener)
+        setupButton(item, resources, listener, enforceRules)
+        setupStar(item, listener)
         iv_constellation.setImageDrawable(getDrawable(item.imageSrc))
     }
 
@@ -153,24 +151,23 @@ class ConstellationView @JvmOverloads constructor(
     private fun setupButton(
         item: Constellation,
         resources: Resource,
-        addItemListener: (Constellation) -> Unit,
-        removeItemListener: (Constellation) -> Unit,
+        listener: IConstellationView,
         enforceRules: Boolean
     ) {
         if (item.selected) {
             btn_remove.visibility = View.VISIBLE
             btn_add.visibility = View.GONE
-            btn_remove.setOnClickListener { removeItemListener(item) }
+            btn_remove.setOnClickListener { listener.onRemoveItemClicked(item) }
             vg_header.setBackgroundColor(ContextCompat.getColor(context, R.color.selectedGreen))
         } else {
             btn_remove.visibility = View.GONE
             if (item.isAvailable(resources) || !enforceRules) {
                 btn_add.visibility = View.VISIBLE
-                btn_add.setOnClickListener { addItemListener(item) }
+                btn_add.setOnClickListener { listener.onAddItemClicked(item) }
                 vg_header.setBackgroundColor(ContextCompat.getColor(context, R.color.availableCream))
             } else if (item.steppingStone != null) {
                 btn_add.visibility = View.VISIBLE
-                btn_add.setOnClickListener { addItemListener(item) }
+                btn_add.setOnClickListener { listener.onAddItemClicked(item) }
                 vg_header.setBackgroundColor(ContextCompat.getColor(context, R.color.unavailableRed))
             } else {
                 btn_add.visibility = View.GONE
@@ -181,7 +178,7 @@ class ConstellationView @JvmOverloads constructor(
 
     private fun setupStar(
         item: Constellation,
-        onStarredListener: (Constellation) -> Unit
+        listener: IConstellationView
     ) {
         cb_starred.isChecked = item.starred
     }

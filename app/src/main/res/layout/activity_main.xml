@@ -1,236 +1,300 @@
-<androidx.coordinatorlayout.widget.CoordinatorLayout
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/root"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+        android:layout_height="match_parent">
 
     <!-- Scrollable view here -->
 
     <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:layout_marginTop="?attr/actionBarSize"
-            app:elevation="0dp"
-            android:translationZ="0.1dp">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="?attr/actionBarSize"
+            android:translationZ="0.1dp"
+            app:elevation="0dp">
 
-        <com.google.android.material.appbar.CollapsingToolbarLayout android:layout_width="match_parent"
-                                                                    android:layout_height="wrap_content"
-                                                                    app:layout_scrollFlags="scroll|enterAlways|exitUntilCollapsed|snap">
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_scrollFlags="scroll|enterAlways|exitUntilCollapsed|snap">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:layout_collapseMode="none"
-                    android:paddingBottom="8dp">
+                    android:paddingBottom="8dp"
+                    app:layout_collapseMode="none">
 
                 <TextView
-                        android:text="Total"
+                        android:id="@+id/textView4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/textView4"
-                        app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        android:text="Total"
+                        android:textColor="@android:color/white"
                         android:textSize="18sp"
                         android:textStyle="bold"
-                        android:textColor="@android:color/white" app:layout_constraintTop_toTopOf="parent"
-                        android:layout_marginTop="8dp"/>
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
                 <TextView
-                        android:text="Points Used: 0 "
+                        android:id="@+id/tv_points_used"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/tv_points_used" app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_marginTop="8dp"
                         android:layout_marginEnd="16dp"
+                        android:text="Points Used: 0 "
+                        android:textColor="@android:color/white"
                         android:textSize="18sp"
-                        android:textColor="@android:color/white" app:layout_constraintTop_toTopOf="parent"
-                        android:layout_marginTop="8dp"/>
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
                 <LinearLayout
-                        android:orientation="horizontal"
+                        android:id="@+id/vg_current_affinities"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:id="@+id/vg_current_affinities"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
                         android:layout_marginTop="8dp"
-                        app:layout_constraintTop_toBottomOf="@id/textView4"
-                >
+                        android:orientation="horizontal"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/textView4">
+
                     <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" app:srcCompat="@drawable/ascendant_icon"
                             android:id="@+id/iv_ascendant_current"
-                            android:layout_marginStart="16dp" android:layout_weight="1"/>
-                    <TextView
-                            android:text="0"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_weight="1"
+                            app:srcCompat="@drawable/ascendant_icon" />
+
+                    <TextView
                             android:id="@+id/tv_ascendant_current"
-                            android:layout_marginStart="8dp"
-                            android:layout_gravity="center_vertical" android:textColor="@android:color/white"
-                            android:layout_weight="1"/>
-                    <ImageView
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" app:srcCompat="@drawable/chaos_icon"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="8dp"
+                            android:layout_weight="1"
+                            android:text="0"
+                            android:textColor="@android:color/white" />
+
+                    <ImageView
                             android:id="@+id/iv_chaos_current"
-                            android:layout_marginStart="16dp"
-                            android:layout_weight="1"/>
-                    <TextView
-                            android:text="0"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_weight="1"
+                            app:srcCompat="@drawable/chaos_icon" />
+
+                    <TextView
                             android:id="@+id/tv_chaos_current"
-                            android:layout_marginStart="8dp"
-                            android:layout_gravity="center_vertical" android:textColor="@android:color/white"
-                            android:layout_weight="1"/>
-                    <ImageView
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" app:srcCompat="@drawable/eldritch_icon"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="8dp"
+                            android:layout_weight="1"
+                            android:text="0"
+                            android:textColor="@android:color/white" />
+
+                    <ImageView
                             android:id="@+id/iv_eldritch_current"
-                            android:layout_marginStart="16dp"
-                            android:layout_weight="1"/>
-                    <TextView
-                            android:text="0"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_weight="1"
+                            app:srcCompat="@drawable/eldritch_icon" />
+
+                    <TextView
                             android:id="@+id/tv_eldritch_current"
-                            android:layout_marginStart="8dp"
-                            android:layout_gravity="center_vertical" android:textColor="@android:color/white"
-                            android:layout_weight="1"/>
-                    <ImageView
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" app:srcCompat="@drawable/order_icon"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="8dp"
+                            android:layout_weight="1"
+                            android:text="0"
+                            android:textColor="@android:color/white" />
+
+                    <ImageView
                             android:id="@+id/iv_order_current"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_marginStart="16dp"
-                            android:layout_weight="1"/>
+                            android:layout_weight="1"
+                            app:srcCompat="@drawable/order_icon" />
+
                     <TextView
-                            android:text="0"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
                             android:id="@+id/tv_order_current"
-                            android:layout_marginStart="8dp"
-                            android:layout_gravity="center_vertical" android:textColor="@android:color/white"
-                            android:layout_weight="1"/>
-                    <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" app:srcCompat="@drawable/primordial_icon"
-                            android:id="@+id/iv_primordial_current"
-                            android:layout_marginStart="16dp" android:layout_weight="1"/>
-                    <TextView
-                            android:text="0"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:id="@+id/tv_primordial_current"
+                            android:layout_gravity="center_vertical"
                             android:layout_marginStart="8dp"
-                            android:layout_gravity="center_vertical" android:textColor="@android:color/white"
-                            android:layout_weight="1" android:layout_marginEnd="16dp"/>
+                            android:layout_weight="1"
+                            android:text="0"
+                            android:textColor="@android:color/white" />
+
+                    <ImageView
+                            android:id="@+id/iv_primordial_current"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_weight="1"
+                            app:srcCompat="@drawable/primordial_icon" />
+
+                    <TextView
+                            android:id="@+id/tv_primordial_current"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginEnd="16dp"
+                            android:layout_weight="1"
+                            android:text="0"
+                            android:textColor="@android:color/white" />
                 </LinearLayout>
+
                 <TextView
-                        android:text="@string/starred"
+                        android:id="@+id/tv_starred"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" android:id="@+id/tv_starred"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/starred"
+                        android:textColor="@android:color/white"
                         android:textSize="18sp"
                         android:textStyle="bold"
-                        android:textColor="@android:color/white"
-                        app:layout_constraintTop_toBottomOf="@+id/vg_current_affinities"
-                        app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
-                        android:layout_marginTop="8dp"/>
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/vg_current_affinities" />
+
                 <LinearLayout
-                        android:orientation="horizontal"
+                        android:id="@+id/vg_starred_affinities"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:orientation="horizontal"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/tv_starred"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent" android:id="@+id/vg_starred_affinities"
-                        android:layout_marginTop="8dp">
+                        app:layout_constraintTop_toBottomOf="@id/tv_starred">
+
                     <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" app:srcCompat="@drawable/ascendant_icon"
                             android:id="@+id/iv_ascendant_starred"
-                            android:layout_marginStart="16dp" android:layout_weight="1"/>
-                    <TextView
-                            android:text="0"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_weight="1"
+                            app:srcCompat="@drawable/ascendant_icon" />
+
+                    <TextView
                             android:id="@+id/tv_ascendant_starred"
-                            android:layout_marginStart="8dp"
-                            android:layout_gravity="center_vertical" android:textColor="@android:color/white"
-                            android:layout_weight="1"/>
-                    <ImageView
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" app:srcCompat="@drawable/chaos_icon"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="8dp"
+                            android:layout_weight="1"
+                            android:text="0"
+                            android:textColor="@android:color/white" />
+
+                    <ImageView
                             android:id="@+id/iv_chaos_starred"
-                            android:layout_marginStart="16dp"
-                            android:layout_weight="1"/>
-                    <TextView
-                            android:text="0"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_weight="1"
+                            app:srcCompat="@drawable/chaos_icon" />
+
+                    <TextView
                             android:id="@+id/tv_chaos_starred"
-                            android:layout_marginStart="8dp"
-                            android:layout_gravity="center_vertical" android:textColor="@android:color/white"
-                            android:layout_weight="1"/>
-                    <ImageView
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" app:srcCompat="@drawable/eldritch_icon"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="8dp"
+                            android:layout_weight="1"
+                            android:text="0"
+                            android:textColor="@android:color/white" />
+
+                    <ImageView
                             android:id="@+id/iv_eldritch_starred"
-                            android:layout_marginStart="16dp"
-                            android:layout_weight="1"/>
-                    <TextView
-                            android:text="0"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_weight="1"
+                            app:srcCompat="@drawable/eldritch_icon" />
+
+                    <TextView
                             android:id="@+id/tv_eldritch_starred"
-                            android:layout_marginStart="8dp"
-                            android:layout_gravity="center_vertical" android:textColor="@android:color/white"
-                            android:layout_weight="1"/>
-                    <ImageView
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" app:srcCompat="@drawable/order_icon"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="8dp"
+                            android:layout_weight="1"
+                            android:text="0"
+                            android:textColor="@android:color/white" />
+
+                    <ImageView
                             android:id="@+id/iv_order_starred"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_marginStart="16dp"
-                            android:layout_weight="1"/>
+                            android:layout_weight="1"
+                            app:srcCompat="@drawable/order_icon" />
+
                     <TextView
-                            android:text="0"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
                             android:id="@+id/tv_order_starred"
-                            android:layout_marginStart="8dp"
-                            android:layout_gravity="center_vertical" android:textColor="@android:color/white"
-                            android:layout_weight="1"/>
-                    <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" app:srcCompat="@drawable/primordial_icon"
-                            android:id="@+id/iv_primordial_starred"
-                            android:layout_marginStart="16dp" android:layout_weight="1"/>
-                    <TextView
-                            android:text="0"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:id="@+id/tv_primordial_starred"
+                            android:layout_gravity="center_vertical"
                             android:layout_marginStart="8dp"
-                            android:layout_gravity="center_vertical" android:textColor="@android:color/white"
-                            android:layout_weight="1" android:layout_marginEnd="16dp"/>
+                            android:layout_weight="1"
+                            android:text="0"
+                            android:textColor="@android:color/white" />
+
+                    <ImageView
+                            android:id="@+id/iv_primordial_starred"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_weight="1"
+                            app:srcCompat="@drawable/primordial_icon" />
+
+                    <TextView
+                            android:id="@+id/tv_primordial_starred"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginEnd="16dp"
+                            android:layout_weight="1"
+                            android:text="0"
+                            android:textColor="@android:color/white" />
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_constellations"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:context=".MainActivity" android:id="@+id/rv_constellations"
-            tools:listitem="@layout/view_constellation"
+            android:layout_marginBottom="?attr/actionBarSize"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            android:layout_marginBottom="?attr/actionBarSize"/>
+            tools:context=".MainActivity"
+            tools:listitem="@layout/view_constellation" />
+
     <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:elevation="8dp">
 
         <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize" />
+
+        <com.myriadmobile.searchview.MMSearchView
+                android:id="@+id/search_view"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:id="@+id/toolbar"/>
-        <com.myriadmobile.searchview.MMSearchView android:layout_width="match_parent"
-                                                  android:layout_height="?attr/actionBarSize"
-                                                  android:visibility="invisible"
-                                                  android:id="@+id/search_view"
-                                                  app:searchFilters="ignoreCase|ignoreSpecialCharacters|ignoreSpaces"/>
+                android:visibility="invisible"
+                app:searchFilters="ignoreCase|ignoreSpecialCharacters|ignoreSpaces|splitPhrases" />
     </FrameLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

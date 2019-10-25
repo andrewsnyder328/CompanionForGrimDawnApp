@@ -4,6 +4,7 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import android.widget.Switch
 import kotlinx.android.synthetic.main.view_filter.view.*
 
 
@@ -20,7 +21,9 @@ class FilterView @JvmOverloads constructor(
                 cb_eldritch.isChecked,
                 cb_order.isChecked,
                 cb_primordial.isChecked,
-                cb_starred.isChecked
+                cb_starred.isChecked,
+                switch_filter_mode.isChecked,
+                switch_filter_type.isChecked
             )
         }
 
@@ -40,5 +43,15 @@ class FilterView @JvmOverloads constructor(
         cb_order.isChecked = filter.order
         cb_primordial.isChecked = filter.primordial
         cb_starred.isChecked = filter.starred
+        switch_filter_mode.isChecked = filter.matchAny
+        tv_filter_mode.setText(if (switch_filter_mode.isChecked) R.string.match_any else R.string.match_all)
+        switch_filter_mode.setOnClickListener { v ->
+            tv_filter_mode.setText(if ((v as Switch).isChecked) R.string.match_any else R.string.match_all)
+        }
+        switch_filter_type.isChecked = filter.matchRequirements
+        tv_filter_type.setText(if (switch_filter_type.isChecked) R.string.match_requirements else R.string.match_rewards)
+        switch_filter_type.setOnClickListener { v ->
+            tv_filter_type.setText(if ((v as Switch).isChecked) R.string.match_requirements else R.string.match_rewards)
+        }
     }
 }

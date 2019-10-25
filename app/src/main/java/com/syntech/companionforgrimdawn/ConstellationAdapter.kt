@@ -5,10 +5,8 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.view_constellation.view.*
 
 class ConstellationAdapter(
-    val resources: Resource,
-    val addItemListener: (Constellation) -> Unit,
-    val removeItemListener: (Constellation) -> Unit,
-    val onStarredListener: (Constellation) -> Unit
+    private val resources: Resource,
+    private val listener: IConstellationView
 ) : RecyclerView.Adapter<ConstellationAdapter.ViewHolder>() {
 
     private val dataItems = mutableListOf<Constellation>()
@@ -20,14 +18,12 @@ class ConstellationAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.row.cb_starred.setOnClickListener {
-            onStarredListener(dataItems[position])
+            listener.onItemStarred(dataItems[position])
         }
         holder.row.setup(
             dataItems[position],
             resources,
-            addItemListener,
-            removeItemListener,
-            onStarredListener,
+            listener,
             enforceRules
         )
     }

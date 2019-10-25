@@ -4,7 +4,7 @@
               android:layout_width="match_parent"
               android:layout_height="wrap_content" android:paddingStart="16dp" android:paddingEnd="16dp">
     <TextView
-            android:text="Reward includes:"
+            android:text="@string/reward_includes"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" android:id="@+id/textView2" android:textSize="18sp"
             android:textStyle="bold"/>
@@ -12,12 +12,14 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
         <ImageView
+                android:id="@+id/imageView"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" app:srcCompat="@drawable/ascendant_icon"
-                android:id="@+id/imageView" android:layout_weight="0"/>
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ascendant_icon" />
         <CheckBox
-                android:text="Ascendant"
+                android:text="@string/ascendant"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" android:id="@+id/cb_ascendant"/>
     </LinearLayout>
@@ -25,12 +27,15 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
         <ImageView
+                android:id="@+id/imageView2"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" app:srcCompat="@drawable/chaos_icon" android:id="@+id/imageView2"
-                android:layout_weight="0"/>
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                app:srcCompat="@drawable/chaos_icon" />
         <CheckBox
-                android:text="Chaos"
+                android:text="@string/chaos"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" android:id="@+id/cb_chaos"/>
     </LinearLayout>
@@ -38,12 +43,15 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
         <ImageView
+                android:id="@+id/imageView3"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" app:srcCompat="@drawable/eldritch_icon"
-                android:id="@+id/imageView3" android:layout_weight="0"/>
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                app:srcCompat="@drawable/eldritch_icon" />
         <CheckBox
-                android:text="Eldritch"
+                android:text="@string/eldritch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" android:id="@+id/cb_eldritch"/>
     </LinearLayout>
@@ -51,12 +59,15 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
         <ImageView
+                android:id="@+id/imageView4"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" app:srcCompat="@drawable/order_icon" android:id="@+id/imageView4"
-                android:layout_weight="0"/>
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                app:srcCompat="@drawable/order_icon" />
         <CheckBox
-                android:text="Order"
+                android:text="@string/order"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" android:id="@+id/cb_order"/>
     </LinearLayout>
@@ -64,12 +75,15 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
         <ImageView
+                android:id="@+id/imageView5"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" app:srcCompat="@drawable/primordial_icon"
-                android:id="@+id/imageView5" android:layout_weight="0"/>
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                app:srcCompat="@drawable/primordial_icon" />
         <CheckBox
-                android:text="Primordial"
+                android:text="@string/primordial"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" android:id="@+id/cb_primordial"/>
     </LinearLayout>
@@ -85,5 +99,43 @@
                 android:text="@string/starred"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:id="@+id/cb_starred" android:layout_weight="1"/>
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+
+        <Switch
+                android:id="@+id/switch_filter_mode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        <TextView
+                android:id="@+id/tv_filter_mode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/match_all" />
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+
+        <Switch
+                android:id="@+id/switch_filter_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        <TextView
+                android:id="@+id/tv_filter_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/match_rewards" />
     </LinearLayout>
 </LinearLayout>

@@ -13,6 +13,7 @@ import androidx.core.view.forEach
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.customview.customView
+import com.google.android.material.snackbar.Snackbar
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.myriadmobile.searchview.MMSearchView
@@ -20,15 +21,16 @@ import kotlinx.android.synthetic.main.activity_main.*
 import java.io.InputStreamReader
 
 private const val KEY_ENFORCE_RULES = "KEY_ENFORCE_RULES"
-class MainActivity : AppCompatActivity(), MMSearchView.ISearchListener {
+
+class MainActivity : AppCompatActivity(), MMSearchView.ISearchListener, IConstellationView {
 
     private lateinit var constellations: MutableList<Constellation>
     private lateinit var resources: Resource
     private lateinit var adapter: ConstellationAdapter
     private lateinit var filter: Filter
-    private var currentSearch: List<Int>? = null
     private lateinit var pathHistory: String
-    var enforceRules: Boolean
+    private var currentSearch: List<Int>? = null
+    private var enforceRules: Boolean
         get() {
             return getSharedPreferences("default", Context.MODE_PRIVATE).getBoolean(KEY_ENFORCE_RULES, true)
         }
@@ -60,7 +62,7 @@ class MainActivity : AppCompatActivity(), MMSearchView.ISearchListener {
             constellations.addAll(Gson().fromJson<MutableList<Constellation>>(json, token))
         }
 
-        adapter = ConstellationAdapter(resources, ::onAddItemClicked, ::onRemoveItemClicked, ::onItemStarred)
+        adapter = ConstellationAdapter(resources, this)
         rv_constellations.layoutManager = LinearLayoutManager(this)
         rv_constellations.adapter = adapter
         updateResources()
@@ -69,7 +71,21 @@ class MainActivity : AppCompatActivity(), MMSearchView.ISearchListener {
         setupSearch()
     }
 
-    private fun onAddItemClicked(item: Constellation) {
+    override fun updateFilteredItems(indices: List<Int>?) {
+        currentSearch = indices
+        updateDataSet()
+    }
+
+    override fun onBackPressed() {
+        if (search_view.isShowing) {
+            search_view.hideSearch()
+        } else {
+            super.onBackPressed()
+        }
+    }
+
+    //TODO fix this
+    override fun onAddItemClicked(item: Constellation) {
         if (enforceRules && constellations.filter { it.selected }.sumBy { it.points } + item.points > 55) {
             MaterialDialog(this)
                 .title(text = getString(R.string.too_many_points_title))
@@ -81,10 +97,8 @@ class MainActivity : AppCompatActivity(), MMSearchView.ISearchListener {
                 MaterialDialog(this)
                     .title(text = "Use temporary devotion?")
                     .message(text = "You don't meet the requirements to unlock ${item.name}. However, if you add ${it.name} (${it.points} points) temporarily it will allow you to unlock ${item.name}. \n\nDo you want to add ${it.name} temporarily to unlock ${item.name}?")
-                    .positiveButton(text = "Yes") { dialog ->
-                        onAddItemClicked(it)
-                        onAddItemClicked(item)
-                        onRemoveItemClicked(it)
+                    .positiveButton(text = "Yes") { _ ->
+                        useSteppingStone(it, item)
                     }
                     .negativeButton(text = "No")
                     .show()
@@ -102,7 +116,7 @@ class MainActivity : AppCompatActivity(), MMSearchView.ISearchListener {
         }
     }
 
-    private fun onRemoveItemClicked(item: Constellation) {
+    override fun onRemoveItemClicked(item: Constellation) {
         val tempResources = Resource()
         constellations.filter { it.selected && it != item }.forEach {
             tempResources.ascendant += it.rewards.ascendant
@@ -131,11 +145,11 @@ class MainActivity : AppCompatActivity(), MMSearchView.ISearchListener {
                 .positiveButton(android.R.string.ok)
                 .show()
         } else {
+            pathHistory += "\n"
             if (!enforceRules) {
-                pathHistory += "\n*${pathHistory.lines().size}: Remove ${item.name}"
-            } else {
-                pathHistory += "\n${pathHistory.lines().size}: Remove ${item.name}"
+                pathHistory += "*"
             }
+            pathHistory += "${pathHistory.lines().size}: Remove ${item.name}"
             constellations[constellations.indexOf(item)].selected = false
             updateResources()
             updateDataSet()
@@ -143,8 +157,21 @@ class MainActivity : AppCompatActivity(), MMSearchView.ISearchListener {
         }
     }
 
-    private fun onItemStarred(item: Constellation) {
+    override fun onItemStarred(item: Constellation) {
         constellations[constellations.indexOf(item)].starred = !constellations[constellations.indexOf(item)].starred
+        updateResources()
+        updateDataSet()
+        save()
+    }
+
+    private fun useSteppingStone(tempItem: Constellation, newItem: Constellation) {
+        pathHistory += "\n${pathHistory.lines().size}: Add ${tempItem.name}"
+
+        pathHistory += "\n${pathHistory.lines().size}: Add ${newItem.name}"
+        constellations[constellations.indexOf(newItem)].selected = true
+
+        pathHistory += "\n${pathHistory.lines().size}: Remove ${tempItem.name}"
+
         updateResources()
         updateDataSet()
         save()
@@ -163,19 +190,90 @@ class MainActivity : AppCompatActivity(), MMSearchView.ISearchListener {
         }
         dataset.sortByDescending { it.selected }
         adapter.updateEnforceRules(enforceRules)
-        adapter.setItems(dataset.asSequence().filter {
-            if (filter.ascendant) it.rewards.ascendant > 0 else true
-        }.filter {
-            if (filter.chaos) it.rewards.chaos > 0 else true
-        }.filter {
-            if (filter.eldritch) it.rewards.eldritch > 0 else true
-        }.filter {
-            if (filter.order) it.rewards.order > 0 else true
-        }.filter {
-            if (filter.primordial) it.rewards.primordial > 0 else true
-        }.filter {
-            if (filter.starred) it.starred else true
-        }.toList())
+        if (filter.matchAny) {
+            adapter.setItems(
+                if (!filter.anySet()) {
+                    dataset
+                } else {
+                    dataset.filter {
+                        if (filter.matchRequirements) {
+                            (filter.ascendant && it.requirements.ascendant > 0)
+                                    || (filter.chaos && it.requirements.chaos > 0)
+                                    || (filter.eldritch && it.requirements.eldritch > 0)
+                                    || (filter.order && it.requirements.order > 0)
+                                    || (filter.primordial && it.requirements.primordial > 0)
+                                    || (filter.starred && it.starred)
+                        } else {
+                            (filter.ascendant && it.rewards.ascendant > 0)
+                                    || (filter.chaos && it.rewards.chaos > 0)
+                                    || (filter.eldritch && it.rewards.eldritch > 0)
+                                    || (filter.order && it.rewards.order > 0)
+                                    || (filter.primordial && it.rewards.primordial > 0)
+                                    || (filter.starred && it.starred)
+                        }
+
+                    }
+                }
+            )
+        } else {
+            adapter.setItems(dataset.asSequence().filter {
+                if (filter.ascendant) {
+                    if (filter.matchRequirements) {
+                        it.requirements.ascendant > 0
+                    } else {
+                        it.rewards.ascendant > 0
+                    }
+                } else true
+            }.filter {
+                if (filter.chaos) {
+                    if (filter.matchRequirements) {
+                        it.requirements.chaos > 0
+                    } else {
+                        it.rewards.chaos > 0
+                    }
+                } else true
+            }.filter {
+                if (filter.eldritch) {
+                    if (filter.matchRequirements) {
+                        it.requirements.eldritch > 0
+                    } else {
+                        it.rewards.eldritch > 0
+                    }
+                } else true
+            }.filter {
+                if (filter.order) {
+                    if (filter.matchRequirements) {
+                        it.requirements.order > 0
+                    } else {
+                        it.rewards.order > 0
+                    }
+                } else true
+            }.filter {
+                if (filter.primordial) {
+                    if (filter.matchRequirements) {
+                        it.requirements.primordial > 0
+                    } else {
+                        it.rewards.primordial > 0
+                    }
+                } else true
+            }.filter {
+                if (filter.starred) it.starred else true
+            }.toList())
+        }
+    }
+
+    private fun showNewConstellations(newConstellations: List<Constellation>) {
+        val snackbar =
+            Snackbar.make(root, "New Constellations unlocked", Snackbar.LENGTH_INDEFINITE)
+        snackbar
+            .setAction("View") {
+                MaterialDialog(this)
+                    .show {
+                        title(text = "Unlocked Devotions")
+                        message(text = newConstellations.joinToString("\n") { it.name })
+                    }
+            }
+            .show()
     }
 
     private fun updateResources() {
@@ -267,7 +365,9 @@ class MainActivity : AppCompatActivity(), MMSearchView.ISearchListener {
                     pathHistory.lines().forEach { line ->
                         pathString += "$line\n"
                     }
-                    pathString += "\n\n(Steps marked with * were done while rules weren't enforced.)"
+                    if (pathString.contains("\n*")) {
+                        pathString += "\n\n(Steps marked with * were done while rules weren't enforced.)"
+                    }
 
                     MaterialDialog(this)
                         .title(R.string.path)
@@ -319,19 +419,6 @@ class MainActivity : AppCompatActivity(), MMSearchView.ISearchListener {
     private fun onFilterApplied(filter: Filter) {
         this.filter = filter
         updateDataSet()
-    }
-
-    override fun updateFilteredItems(indices: List<Int>?) {
-        currentSearch = indices
-        updateDataSet()
-    }
-
-    override fun onBackPressed() {
-        if (search_view.isShowing) {
-            search_view.hideSearch()
-        } else {
-            super.onBackPressed()
-        }
     }
 
     private fun save() {
