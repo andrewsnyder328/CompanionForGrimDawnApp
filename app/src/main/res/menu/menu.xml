@@ -4,12 +4,25 @@
     <item android:title="@string/filter" android:icon="@drawable/ic_filter_list" app:showAsAction="ifRoom"
           android:id="@+id/action_filter"/>
 
-    <item android:title="@string/show_path" app:showAsAction="never" android:id="@+id/action_show_path"/>
+    <item
+            android:title="@string/show_summary"
+            app:showAsAction="never"
+            android:id="@+id/action_show_summary" />
 
     <item
             android:id="@+id/action_enforce_rules"
             android:checkable="true"
             android:title="@string/enforce_rules"/>
+
+    <item
+            android:title="@string/save"
+            app:showAsAction="never"
+            android:id="@+id/action_save" />
+
+    <item
+            android:title="@string/load"
+            app:showAsAction="never"
+            android:id="@+id/action_load" />
 
     <item android:title="@string/reset" app:showAsAction="never" android:id="@+id/action_reset"/>
 

@@ -12,7 +12,12 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.forEach
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.afollestad.materialdialogs.MaterialDialog
+import com.afollestad.materialdialogs.WhichButton
+import com.afollestad.materialdialogs.actions.setActionButtonEnabled
 import com.afollestad.materialdialogs.customview.customView
+import com.afollestad.materialdialogs.input.input
+import com.afollestad.materialdialogs.list.listItems
+import com.afollestad.materialdialogs.list.updateListItems
 import com.google.android.material.snackbar.Snackbar
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
@@ -39,6 +44,26 @@ class MainActivity : AppCompatActivity(), MMSearchView.ISearchListener, IConstel
             getSharedPreferences("default", Context.MODE_PRIVATE).edit().putBoolean(KEY_ENFORCE_RULES, value).apply()
         }
 
+    private var saveList: MutableList<Save>
+        get() {
+            val json = getSharedPreferences("save_list", Context.MODE_PRIVATE).getString(
+                KEY_ENFORCE_RULES,
+                null
+            )
+            json?.let {
+                val type = object : TypeToken<MutableList<Save>>() {}.type
+                return Gson().fromJson<MutableList<Save>>(it, type)
+            } ?: run {
+                return mutableListOf()
+            }
+
+        }
+        set(value) {
+            val json = Gson().toJson(value)
+            getSharedPreferences("save_list", Context.MODE_PRIVATE).edit()
+                .putString(KEY_ENFORCE_RULES, json).apply()
+        }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -48,28 +73,10 @@ class MainActivity : AppCompatActivity(), MMSearchView.ISearchListener, IConstel
         val prefs = getSharedPreferences("default", Context.MODE_PRIVATE)
         prefs.getString("save", null)?.let {
             val save = Gson().fromJson(it, Save::class.java)
-            resources = save.resources
-            constellations = save.devotions
-            filter = save.filter
-            pathHistory = save.pathHistory
+            loadFromSave(save)
         } ?: run {
-            resources = Resource()
-            pathHistory = ""
-            constellations = mutableListOf()
-            filter = Filter()
-            val inputStream = assets.open("json/constellations.json")
-            val reader = InputStreamReader(inputStream)
-            val json = reader.readText()
-            val token = object : TypeToken<MutableList<Constellation>>() {}.type
-
-            constellations.addAll(Gson().fromJson<MutableList<Constellation>>(json, token))
+            loadNew()
         }
-
-        adapter = ConstellationAdapter(resources, this)
-        rv_constellations.layoutManager = LinearLayoutManager(this)
-        rv_constellations.adapter = adapter
-        updateResources()
-        updateDataSet()
         setupToolbar()
         setupSearch()
     }
@@ -106,10 +113,10 @@ class MainActivity : AppCompatActivity(), MMSearchView.ISearchListener, IConstel
                     .show()
             }
         } else {
-            pathHistory += if (!enforceRules) {
-                "\n*${pathHistory.lines().size}: Add ${item.name}"
-            } else {
+            pathHistory += if (enforceRules) {
                 "\n${pathHistory.lines().size}: Add ${item.name}"
+            } else {
+                "\n*${pathHistory.lines().size}: Add ${item.name}"
             }
             constellations[constellations.indexOf(item)].selected = true
             val current = constellations.filter { it.isAvailable(resources) }
@@ -136,7 +143,7 @@ class MainActivity : AppCompatActivity(), MMSearchView.ISearchListener, IConstel
         }
         var isValid = true
         var dependentDevotions = ""
-        constellations.filter { it.selected && it != item }.forEach {
+        constellations.filter { it.selected /* && it != item */ }.forEach {
             if (it.requirements.ascendant > tempResources.ascendant
                 || it.requirements.chaos > tempResources.chaos
                 || it.requirements.eldritch > tempResources.eldritch
@@ -155,11 +162,11 @@ class MainActivity : AppCompatActivity(), MMSearchView.ISearchListener, IConstel
                 .positiveButton(android.R.string.ok)
                 .show()
         } else {
-            pathHistory += "\n"
-            if (!enforceRules) {
-                pathHistory += "*"
+            pathHistory += if (enforceRules) {
+                "\n${pathHistory.lines().size}: Remove ${item.name}"
+            } else {
+                "\n*${pathHistory.lines().size}: Remove ${item.name}"
             }
-            pathHistory += "${pathHistory.lines().size}: Remove ${item.name}"
             constellations[constellations.indexOf(item)].selected = false
             updateResources()
             updateDataSet()
@@ -173,6 +180,14 @@ class MainActivity : AppCompatActivity(), MMSearchView.ISearchListener, IConstel
         updateResources()
         updateDataSet()
         save()
+    }
+
+    private fun setup() {
+        adapter = ConstellationAdapter(resources, this)
+        rv_constellations.layoutManager = LinearLayoutManager(this)
+        rv_constellations.adapter = adapter
+        updateResources()
+        updateDataSet()
     }
 
     private fun useSteppingStone(tempItem: Constellation, newItem: Constellation) {
@@ -291,7 +306,7 @@ class MainActivity : AppCompatActivity(), MMSearchView.ISearchListener, IConstel
                 MaterialDialog(this)
                     .show {
                         title(text = "Unlocked Devotions")
-                        message(text = newConstellations.joinToString("\n") { it.name })
+                        message(text = ">" + newConstellations.joinToString("\n>") { it.name })
                         positiveButton(text = "Done")
                     }
             }
@@ -300,6 +315,28 @@ class MainActivity : AppCompatActivity(), MMSearchView.ISearchListener, IConstel
 
     private fun hideSnackbar() {
         snackbar.dismiss()
+    }
+
+    private fun loadFromSave(save: Save) {
+        resources = save.resources
+        constellations = save.devotions
+        filter = save.filter
+        pathHistory = save.pathHistory
+        setup()
+        save()
+    }
+
+    private fun loadNew() {
+        resources = Resource()
+        pathHistory = ""
+        constellations = mutableListOf()
+        filter = Filter()
+        val inputStream = assets.open("json/constellations.json")
+        val reader = InputStreamReader(inputStream)
+        val json = reader.readText()
+        val token = object : TypeToken<MutableList<Constellation>>() {}.type
+        constellations.addAll(Gson().fromJson<MutableList<Constellation>>(json, token))
+        setup()
     }
 
     private fun updateResources() {
@@ -374,37 +411,24 @@ class MainActivity : AppCompatActivity(), MMSearchView.ISearchListener, IConstel
                         .show()
                     view.setup(filter)
                 }
-                R.id.action_show_path -> {
-                    var pathString = ""
-                    pathString += "Ascendant: ${resources.ascendant}"
-                    pathString += "\nChaos: ${resources.chaos}"
-                    pathString += "\nEldritch: ${resources.eldritch}"
-                    pathString += "\nOrder: ${resources.order}"
-                    pathString += "\nPrimordial: ${resources.primordial}"
-                    pathString += "\n\nActive:"
-                    constellations.filter { constellation -> constellation.selected }
-                        .sortedBy { constellation -> constellation.name }
-                        .forEach { constellation ->
-                            pathString += "\n${constellation.name}"
-                        }
-                    pathString += "\n\nPoints Used: ${constellations.filter { constellation -> constellation.selected }.sumBy { constellation -> constellation.points }}"
-                    pathString += "\n\nSteps:"
-                    pathHistory.lines().forEach { line ->
-                        pathString += "$line\n"
-                    }
-                    if (pathString.contains("\n*")) {
-                        pathString += "\n\n(Steps marked with * were done while rules weren't enforced.)"
-                    }
-
+                R.id.action_show_summary -> {
                     MaterialDialog(this)
-                        .title(R.string.path)
-                        .message(text = pathString)
-                        .positiveButton(android.R.string.ok)
-                        .negativeButton(R.string.copy) {
+                        .noAutoDismiss()
+                        .title(R.string.summary)
+                        .message(text = getPathString())
+                        .positiveButton(text = "Done") { dialog ->
+                            dialog.dismiss()
+                        }
+                        .neutralButton(R.string.copy) {
                             val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-                            val clip = ClipData.newPlainText("Path", pathString)
+                            val clip = ClipData.newPlainText("Path", getPathString())
                             clipboard.primaryClip = clip
                             Toast.makeText(this, "Copied to clipboard", Toast.LENGTH_SHORT).show()
+                        }
+                        .negativeButton(text = "Clear Steps") { dialog ->
+                            pathHistory = ""
+                            save()
+                            dialog.message(text = getPathString())
                         }
                         .show()
                 }
@@ -432,9 +456,115 @@ class MainActivity : AppCompatActivity(), MMSearchView.ISearchListener, IConstel
                     enforceRules = it.isChecked
                     updateDataSet()
                 }
+                R.id.action_save -> {
+                    MaterialDialog(this).show {
+                        title(text = "Save Build")
+                        val list = saveList
+                        if (list.isNotEmpty()) {
+                            listItems(
+                                waitForPositiveButton = false,
+                                items = list.mapIndexed { index, save -> "${index + 1}) " + save.name + " - click to overwrite" }) { dialog, index, text ->
+                                val save = Save(
+                                    resources,
+                                    constellations,
+                                    filter,
+                                    pathHistory,
+                                    list[index].name
+                                )
+                                list[index] = save
+                                saveList = list
+                                dialog.dismiss()
+                            }
+                        }
+                        input("Build Name", allowEmpty = false) { dialog, text ->
+                            val save = Save(
+                                resources,
+                                constellations,
+                                filter,
+                                pathHistory,
+                                text.toString()
+                            )
+                            list.add(save)
+                            saveList = list
+                            dialog.dismiss()
+                        }
+                        positiveButton(text = "Save")
+                        negativeButton(text = "Cancel")
+                    }
+                }
+                R.id.action_load -> {
+                    MaterialDialog(this).show {
+                        noAutoDismiss()
+                        title(text = "Save Build")
+                        var selectedIndex: Int? = null
+                        val list = saveList
+                        if (list.isNotEmpty()) {
+                            listItems(
+                                waitForPositiveButton = false,
+                                items = list.mapIndexed { index, save -> "${index + 1}) " + save.name }) { dialog, index, text ->
+                                selectedIndex = index
+                                message(text = "Selected Item: ${index + 1}) ${list[index].name}")
+                                dialog.setActionButtonEnabled(WhichButton.POSITIVE, true)
+                                dialog.setActionButtonEnabled(WhichButton.NEUTRAL, true)
+                            }
+                        } else {
+                            message(text = "No builds found. After saving builds, come back here to load them.")
+                        }
+                        positiveButton(text = "Load") { dialog ->
+                            loadFromSave(list[selectedIndex!!])
+                            dialog.dismiss()
+                        }
+                        neutralButton(text = "Delete") { dialog ->
+                            list.removeAt(selectedIndex!!)
+                            message(text = "")
+                            dialog.setActionButtonEnabled(WhichButton.POSITIVE, false)
+                            dialog.setActionButtonEnabled(WhichButton.NEUTRAL, false)
+                            saveList = list
+                            if (list.isNotEmpty()) {
+                                updateListItems(items = list.map { save -> save.name + "" }) { dialog, index, text ->
+                                    selectedIndex = index
+                                    dialog.setActionButtonEnabled(WhichButton.POSITIVE, true)
+                                    dialog.setActionButtonEnabled(WhichButton.NEUTRAL, true)
+                                }
+                            } else {
+                                updateListItems(items = emptyList())
+                                message(text = "No builds found. After saving builds, come back here to load them.")
+                            }
+                        }
+                        negativeButton(text = "Cancel") { dialog ->
+                            dialog.dismiss()
+                        }
+                        setActionButtonEnabled(WhichButton.POSITIVE, false)
+                        setActionButtonEnabled(WhichButton.NEUTRAL, false)
+                    }
+                }
             }
             false
         }
+    }
+
+    private fun getPathString(): String {
+        var pathString = ""
+        pathString += "Ascendant: ${resources.ascendant}"
+        pathString += "\nChaos: ${resources.chaos}"
+        pathString += "\nEldritch: ${resources.eldritch}"
+        pathString += "\nOrder: ${resources.order}"
+        pathString += "\nPrimordial: ${resources.primordial}"
+        pathString += "\n\nActive:"
+        constellations.filter { constellation -> constellation.selected }
+            .sortedBy { constellation -> constellation.name }
+            .forEach { constellation ->
+                pathString += "\n${constellation.name}"
+            }
+        pathString += "\n\nPoints Used: ${constellations.filter { constellation -> constellation.selected }.sumBy { constellation -> constellation.points }}"
+        pathString += "\n\nSteps:"
+        pathHistory.lines().forEach { line ->
+            pathString += "$line\n"
+        }
+        if (pathString.contains("\n*")) {
+            pathString += "\n\n(Steps marked with * were done while rules weren't enforced.)"
+        }
+        return pathString
     }
 
     private fun setupSearch() {

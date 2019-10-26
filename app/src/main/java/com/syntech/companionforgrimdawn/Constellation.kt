@@ -19,5 +19,4 @@ data class Constellation(
                 && resources.order >= requirements.order
                 && resources.primordial >= requirements.primordial
     }
-
 }
