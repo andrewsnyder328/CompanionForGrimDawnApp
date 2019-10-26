@@ -29,6 +29,7 @@ class MainActivity : AppCompatActivity(), MMSearchView.ISearchListener, IConstel
     private lateinit var adapter: ConstellationAdapter
     private lateinit var filter: Filter
     private lateinit var pathHistory: String
+    private lateinit var snackbar: Snackbar
     private var currentSearch: List<Int>? = null
     private var enforceRules: Boolean
         get() {
@@ -41,6 +42,8 @@ class MainActivity : AppCompatActivity(), MMSearchView.ISearchListener, IConstel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        snackbar = Snackbar.make(root, "", Snackbar.LENGTH_INDEFINITE)
 
         val prefs = getSharedPreferences("default", Context.MODE_PRIVATE)
         prefs.getString("save", null)?.let {
@@ -116,6 +119,8 @@ class MainActivity : AppCompatActivity(), MMSearchView.ISearchListener, IConstel
             val new = constellations.filter { !current.contains(it) && it.isAvailable(resources) }
             if (new.isNotEmpty()) {
                 showNewConstellations(new)
+            } else {
+                hideSnackbar()
             }
         }
     }
@@ -159,6 +164,7 @@ class MainActivity : AppCompatActivity(), MMSearchView.ISearchListener, IConstel
             updateResources()
             updateDataSet()
             save()
+            hideSnackbar()
         }
     }
 
@@ -185,8 +191,11 @@ class MainActivity : AppCompatActivity(), MMSearchView.ISearchListener, IConstel
 
         val new =
             constellations.filter { it.isAvailable(resources) && !current.contains(it) && !it.selected }
+
         if (new.isNotEmpty()) {
             showNewConstellations(new)
+        } else {
+            hideSnackbar()
         }
     }
 
@@ -276,9 +285,8 @@ class MainActivity : AppCompatActivity(), MMSearchView.ISearchListener, IConstel
     }
 
     private fun showNewConstellations(newConstellations: List<Constellation>) {
-        val snackbar =
-            Snackbar.make(root, "New Constellations unlocked", Snackbar.LENGTH_INDEFINITE)
         snackbar
+            .setText("New Constellations unlocked")
             .setAction("View") {
                 MaterialDialog(this)
                     .show {
@@ -288,6 +296,10 @@ class MainActivity : AppCompatActivity(), MMSearchView.ISearchListener, IConstel
                     }
             }
             .show()
+    }
+
+    private fun hideSnackbar() {
+        snackbar.dismiss()
     }
 
     private fun updateResources() {
@@ -348,6 +360,7 @@ class MainActivity : AppCompatActivity(), MMSearchView.ISearchListener, IConstel
                             onFilterApplied(view.filter)
                             save()
                         }
+                        .neutralButton(text = "Cancel")
                         .negativeButton(R.string.clear) {
                             filter.ascendant = false
                             filter.chaos = false

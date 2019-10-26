@@ -3,11 +3,7 @@
               xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="wrap_content" android:paddingStart="16dp" android:paddingEnd="16dp">
-    <TextView
-            android:text="@string/reward_includes"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:id="@+id/textView2" android:textSize="18sp"
-            android:textStyle="bold"/>
+
     <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
@@ -102,6 +98,7 @@
     </LinearLayout>
 
     <LinearLayout
+            android:id="@+id/vg_filter_mode"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="8dp"
@@ -110,17 +107,20 @@
         <Switch
                 android:id="@+id/switch_filter_mode"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:clickable="false" />
 
         <TextView
                 android:id="@+id/tv_filter_mode"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
                 android:layout_weight="1"
                 android:text="@string/match_all" />
     </LinearLayout>
 
     <LinearLayout
+            android:id="@+id/vg_filter_type"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="8dp"
@@ -129,12 +129,14 @@
         <Switch
                 android:id="@+id/switch_filter_type"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:clickable="false" />
 
         <TextView
                 android:id="@+id/tv_filter_type"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
                 android:layout_weight="1"
                 android:text="@string/match_rewards" />
     </LinearLayout>

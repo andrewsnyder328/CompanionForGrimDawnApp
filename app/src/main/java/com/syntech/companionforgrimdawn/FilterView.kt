@@ -4,7 +4,6 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.ViewGroup
 import android.widget.FrameLayout
-import android.widget.Switch
 import kotlinx.android.synthetic.main.view_filter.view.*
 
 
@@ -45,13 +44,19 @@ class FilterView @JvmOverloads constructor(
         cb_starred.isChecked = filter.starred
         switch_filter_mode.isChecked = filter.matchAny
         tv_filter_mode.setText(if (switch_filter_mode.isChecked) R.string.match_any else R.string.match_all)
-        switch_filter_mode.setOnClickListener { v ->
-            tv_filter_mode.setText(if ((v as Switch).isChecked) R.string.match_any else R.string.match_all)
+        vg_filter_mode.setOnClickListener { v ->
+            switch_filter_mode.isClickable = true
+            switch_filter_mode.performClick()
+            switch_filter_mode.isClickable = false
+            tv_filter_mode.setText(if (switch_filter_mode.isChecked) R.string.match_any else R.string.match_all)
         }
         switch_filter_type.isChecked = filter.matchRequirements
         tv_filter_type.setText(if (switch_filter_type.isChecked) R.string.match_requirements else R.string.match_rewards)
-        switch_filter_type.setOnClickListener { v ->
-            tv_filter_type.setText(if ((v as Switch).isChecked) R.string.match_requirements else R.string.match_rewards)
+        vg_filter_type.setOnClickListener { v ->
+            switch_filter_type.isClickable = true
+            switch_filter_type.performClick()
+            switch_filter_type.isClickable = false
+            tv_filter_type.setText(if (switch_filter_type.isChecked) R.string.match_requirements else R.string.match_rewards)
         }
     }
 }
